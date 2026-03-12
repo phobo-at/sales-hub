@@ -1,0 +1,21 @@
+name: Screenshot Capture
+
+on:
+  workflow_dispatch:
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Capture screenshots
+        env:
+          LOUPE_CAPTURE_BASE_URL: ${{ secrets.LOUPE_CAPTURE_BASE_URL }}
+          LOUPE_CAPTURE_STORAGE_STATE_PATH: ${{ secrets.LOUPE_CAPTURE_STORAGE_STATE_PATH }}
+        run: npm run screenshots:capture
