@@ -10,7 +10,7 @@ interface CaptureResult {
   captured: string[];
   todo: string[];
   failed: Array<{ slotId: string; reason: string }>;
-  skipped: string[];
+  skipped: Array<{ slotId: string; reason: string }>;
 }
 
 async function ensureStorageStateExists(filePath: string): Promise<void> {
@@ -60,7 +60,18 @@ async function runCapture(): Promise<CaptureResult> {
       }
 
       if (!mapping.path || !mapping.readySelector) {
-        result.skipped.push(mapping.slotId);
+        result.skipped.push({
+          slotId: mapping.slotId,
+          reason: "Capture-Mapping ist unvollstaendig."
+        });
+        continue;
+      }
+
+      if (!contractItem.assetPath) {
+        result.skipped.push({
+          slotId: mapping.slotId,
+          reason: "Im Screenshot-Contract ist kein assetPath gesetzt."
+        });
         continue;
       }
 
@@ -113,6 +124,13 @@ runCapture()
       console.log("TODO-Slots:");
       for (const slotId of result.todo) {
         console.log(`- ${slotId}`);
+      }
+    }
+
+    if (result.skipped.length > 0) {
+      console.log("Skipped-Slots:");
+      for (const item of result.skipped) {
+        console.log(`- ${item.slotId}: ${item.reason}`);
       }
     }
 

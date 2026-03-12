@@ -5,6 +5,25 @@ import { SalesScreenshot } from "@/components/SalesScreenshot";
 import type { ScreenshotContractItem } from "@/content/screenshot-contract";
 
 describe("SalesScreenshot", () => {
+  it("renders a placeholder when assetPath is null", async () => {
+    const screenshot: ScreenshotContractItem = {
+      id: "whistleblowing-inbox",
+      module: "whistleblowing",
+      title: "Whistleblowing Inbox",
+      purpose: "hero",
+      caption: "Placeholder test null assetPath",
+      status: "missing",
+      assetPath: null,
+      sourceNote: "Test"
+    };
+
+    const element = await SalesScreenshot({ screenshot });
+    const html = renderToStaticMarkup(element);
+
+    expect(html).toContain("Placeholder aktiv");
+    expect(html).not.toContain("<img");
+  });
+
   it("renders a placeholder when the asset is missing", async () => {
     const screenshot: ScreenshotContractItem = {
       id: "whistleblowing-inbox",

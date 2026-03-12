@@ -16,16 +16,42 @@ export function getScreenshotsByIds(ids: ScreenshotSlotId[]): ScreenshotContract
   return ids.map((id) => getScreenshotById(id));
 }
 
-export function getScreenshotsForModule(module: Exclude<ModuleId, "task-room">): ScreenshotContractItem[] {
+export function getScreenshotsByModule(module: ModuleId): ScreenshotContractItem[] {
+  if (module === "task-room") {
+    return [];
+  }
+
   return SCREENSHOT_CONTRACT.filter((item) => item.module === module);
 }
 
-export async function hasScreenshotAsset(assetPath: string): Promise<boolean> {
-  if (!assetPath.startsWith("/")) {
+export function getHeroScreenshot(module: ModuleId): ScreenshotContractItem | null {
+  return getScreenshotsByModule(module).find((item) => item.purpose === "hero") ?? null;
+}
+
+export function getProofScreenshots(module: ModuleId): ScreenshotContractItem[] {
+  return getScreenshotsByModule(module).filter((item) => item.purpose === "proof");
+}
+
+export function getDifferentiatorScreenshot(module: ModuleId): ScreenshotContractItem | null {
+  return getScreenshotsByModule(module).find((item) => item.purpose === "differentiator") ?? null;
+}
+
+export function getScreenshotsForModule(module: ModuleId): ScreenshotContractItem[] {
+  return getScreenshotsByModule(module);
+}
+
+export async function hasScreenshotAsset(assetPath: string | null | undefined): Promise<boolean> {
+  if (typeof assetPath !== "string") {
     return false;
   }
 
-  const absolute = path.join(process.cwd(), "public", assetPath.slice(1));
+  const normalizedPath = assetPath.trim();
+
+  if (!normalizedPath.startsWith("/")) {
+    return false;
+  }
+
+  const absolute = path.join(process.cwd(), "public", normalizedPath.slice(1));
 
   try {
     await fs.access(absolute);

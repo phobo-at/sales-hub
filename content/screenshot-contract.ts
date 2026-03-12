@@ -21,43 +21,29 @@ export const SCREENSHOT_SLOT_IDS = [
 ] as const;
 
 export type ScreenshotSlotId = (typeof SCREENSHOT_SLOT_IDS)[number];
-export type ScreenshotPurpose = "hero" | "proof" | "differentiator";
-export type ScreenshotStatus = "required" | "planned" | "missing" | "available";
+export type ScreenshotModuleId = Exclude<ModuleId, "task-room">;
+
+export const SCREENSHOT_PURPOSES = ["hero", "proof", "differentiator"] as const;
+export type ScreenshotPurpose = (typeof SCREENSHOT_PURPOSES)[number];
+
+export const SCREENSHOT_STATUSES = ["required", "planned", "missing", "available"] as const;
+export type ScreenshotStatus = (typeof SCREENSHOT_STATUSES)[number];
 
 export interface ScreenshotContractItem {
   id: ScreenshotSlotId;
-  module: Exclude<ModuleId, "task-room">;
+  module: ScreenshotModuleId;
   title: string;
   purpose: ScreenshotPurpose;
   caption: string;
   status: ScreenshotStatus;
-  assetPath: string;
+  assetPath: string | null;
   sourceNote: string;
 }
 
-export const REQUIRED_PURPOSE_BY_SLOT: Record<ScreenshotSlotId, ScreenshotPurpose> = {
-  "whistleblowing-inbox": "hero",
-  "whistleblowing-case-detail-ai": "proof",
-  "whistleblowing-summary-ai": "differentiator",
-  "risk-overview-visualization": "hero",
-  "risk-register-measures": "proof",
-  "risk-assessment-questionnaire": "proof",
-  "integrity-check-home-categories": "hero",
-  "integrity-check-request-form": "proof",
-  "integrity-check-questionnaire": "proof",
-  "policy-navigator-overview": "hero",
-  "policy-navigator-olex-qa": "differentiator",
-  "policy-navigator-read-confirmation": "proof",
-  "dawn-raids-alert-portal": "hero",
-  "dawn-raids-incident-documentation": "proof",
-  "business-partner-overview-risk": "hero",
-  "business-partner-profile-detail": "proof",
-  "business-partner-questionnaire": "proof"
-};
+type ScreenshotContractMetaById = Record<ScreenshotSlotId, Omit<ScreenshotContractItem, "id">>;
 
-export const SCREENSHOT_CONTRACT: readonly ScreenshotContractItem[] = [
-  {
-    id: "whistleblowing-inbox",
+const SCREENSHOT_CONTRACT_META_BY_ID = {
+  "whistleblowing-inbox": {
     module: "whistleblowing",
     title: "Whistleblowing Inbox",
     purpose: "hero",
@@ -66,8 +52,7 @@ export const SCREENSHOT_CONTRACT: readonly ScreenshotContractItem[] = [
     assetPath: "/assets/screenshots/whistleblowing-inbox.png",
     sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
   },
-  {
-    id: "whistleblowing-case-detail-ai",
+  "whistleblowing-case-detail-ai": {
     module: "whistleblowing",
     title: "Whistleblowing Case Detail mit KI",
     purpose: "proof",
@@ -76,8 +61,7 @@ export const SCREENSHOT_CONTRACT: readonly ScreenshotContractItem[] = [
     assetPath: "/assets/screenshots/whistleblowing-case-detail-ai.png",
     sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
   },
-  {
-    id: "whistleblowing-summary-ai",
+  "whistleblowing-summary-ai": {
     module: "whistleblowing",
     title: "Whistleblowing Zusammenfassung mit KI",
     purpose: "differentiator",
@@ -86,8 +70,7 @@ export const SCREENSHOT_CONTRACT: readonly ScreenshotContractItem[] = [
     assetPath: "/assets/screenshots/whistleblowing-summary-ai.png",
     sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
   },
-  {
-    id: "risk-overview-visualization",
+  "risk-overview-visualization": {
     module: "risk",
     title: "Risk Overview Visualisierung",
     purpose: "hero",
@@ -96,8 +79,7 @@ export const SCREENSHOT_CONTRACT: readonly ScreenshotContractItem[] = [
     assetPath: "/assets/screenshots/risk-overview-visualization.png",
     sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
   },
-  {
-    id: "risk-register-measures",
+  "risk-register-measures": {
     module: "risk",
     title: "Risk Register und Massnahmen",
     purpose: "proof",
@@ -106,8 +88,7 @@ export const SCREENSHOT_CONTRACT: readonly ScreenshotContractItem[] = [
     assetPath: "/assets/screenshots/risk-register-measures.png",
     sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
   },
-  {
-    id: "risk-assessment-questionnaire",
+  "risk-assessment-questionnaire": {
     module: "risk",
     title: "Risk Assessment Fragebogen",
     purpose: "proof",
@@ -116,8 +97,7 @@ export const SCREENSHOT_CONTRACT: readonly ScreenshotContractItem[] = [
     assetPath: "/assets/screenshots/risk-assessment-questionnaire.png",
     sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
   },
-  {
-    id: "integrity-check-home-categories",
+  "integrity-check-home-categories": {
     module: "integrity-check",
     title: "Integrity Check Kategorien",
     purpose: "hero",
@@ -126,8 +106,7 @@ export const SCREENSHOT_CONTRACT: readonly ScreenshotContractItem[] = [
     assetPath: "/assets/screenshots/integrity-check-home-categories.png",
     sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
   },
-  {
-    id: "integrity-check-request-form",
+  "integrity-check-request-form": {
     module: "integrity-check",
     title: "Integrity Check Anfrageformular",
     purpose: "proof",
@@ -136,8 +115,7 @@ export const SCREENSHOT_CONTRACT: readonly ScreenshotContractItem[] = [
     assetPath: "/assets/screenshots/integrity-check-request-form.png",
     sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
   },
-  {
-    id: "integrity-check-questionnaire",
+  "integrity-check-questionnaire": {
     module: "integrity-check",
     title: "Integrity Check Fragebogen",
     purpose: "proof",
@@ -146,8 +124,7 @@ export const SCREENSHOT_CONTRACT: readonly ScreenshotContractItem[] = [
     assetPath: "/assets/screenshots/integrity-check-questionnaire.png",
     sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
   },
-  {
-    id: "policy-navigator-overview",
+  "policy-navigator-overview": {
     module: "policy-navigator",
     title: "Policy Navigator Overview",
     purpose: "hero",
@@ -156,8 +133,7 @@ export const SCREENSHOT_CONTRACT: readonly ScreenshotContractItem[] = [
     assetPath: "/assets/screenshots/policy-navigator-overview.png",
     sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
   },
-  {
-    id: "policy-navigator-olex-qa",
+  "policy-navigator-olex-qa": {
     module: "policy-navigator",
     title: "Policy Navigator OLEX Q&A",
     purpose: "differentiator",
@@ -166,8 +142,7 @@ export const SCREENSHOT_CONTRACT: readonly ScreenshotContractItem[] = [
     assetPath: "/assets/screenshots/policy-navigator-olex-qa.png",
     sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
   },
-  {
-    id: "policy-navigator-read-confirmation",
+  "policy-navigator-read-confirmation": {
     module: "policy-navigator",
     title: "Policy Navigator Lesebestaetigung",
     purpose: "proof",
@@ -176,8 +151,7 @@ export const SCREENSHOT_CONTRACT: readonly ScreenshotContractItem[] = [
     assetPath: "/assets/screenshots/policy-navigator-read-confirmation.png",
     sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
   },
-  {
-    id: "dawn-raids-alert-portal",
+  "dawn-raids-alert-portal": {
     module: "dawn-raids",
     title: "Dawn Raids Alarmportal",
     purpose: "hero",
@@ -186,8 +160,7 @@ export const SCREENSHOT_CONTRACT: readonly ScreenshotContractItem[] = [
     assetPath: "/assets/screenshots/dawn-raids-alert-portal.png",
     sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
   },
-  {
-    id: "dawn-raids-incident-documentation",
+  "dawn-raids-incident-documentation": {
     module: "dawn-raids",
     title: "Dawn Raids Einsatzdokumentation",
     purpose: "proof",
@@ -196,8 +169,7 @@ export const SCREENSHOT_CONTRACT: readonly ScreenshotContractItem[] = [
     assetPath: "/assets/screenshots/dawn-raids-incident-documentation.png",
     sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
   },
-  {
-    id: "business-partner-overview-risk",
+  "business-partner-overview-risk": {
     module: "business-partner",
     title: "Business Partner Risiko-Overview",
     purpose: "hero",
@@ -206,8 +178,7 @@ export const SCREENSHOT_CONTRACT: readonly ScreenshotContractItem[] = [
     assetPath: "/assets/screenshots/business-partner-overview-risk.png",
     sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
   },
-  {
-    id: "business-partner-profile-detail",
+  "business-partner-profile-detail": {
     module: "business-partner",
     title: "Business Partner Profil-Detail",
     purpose: "proof",
@@ -216,8 +187,7 @@ export const SCREENSHOT_CONTRACT: readonly ScreenshotContractItem[] = [
     assetPath: "/assets/screenshots/business-partner-profile-detail.png",
     sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
   },
-  {
-    id: "business-partner-questionnaire",
+  "business-partner-questionnaire": {
     module: "business-partner",
     title: "Business Partner Assessment",
     purpose: "proof",
@@ -226,7 +196,17 @@ export const SCREENSHOT_CONTRACT: readonly ScreenshotContractItem[] = [
     assetPath: "/assets/screenshots/business-partner-questionnaire.png",
     sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
   }
-] as const;
+} as const satisfies ScreenshotContractMetaById;
+
+export const SCREENSHOT_CONTRACT: readonly ScreenshotContractItem[] = SCREENSHOT_SLOT_IDS.map((id) => ({
+  id,
+  ...SCREENSHOT_CONTRACT_META_BY_ID[id]
+}));
+
+export const REQUIRED_PURPOSE_BY_SLOT: Record<ScreenshotSlotId, ScreenshotPurpose> =
+  Object.fromEntries(
+    SCREENSHOT_SLOT_IDS.map((id) => [id, SCREENSHOT_CONTRACT_META_BY_ID[id].purpose])
+  ) as Record<ScreenshotSlotId, ScreenshotPurpose>;
 
 export const SCREENSHOT_CONTRACT_BY_ID: Record<ScreenshotSlotId, ScreenshotContractItem> =
   Object.fromEntries(SCREENSHOT_CONTRACT.map((item) => [item.id, item])) as Record<

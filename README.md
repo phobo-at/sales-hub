@@ -61,6 +61,7 @@ npm run screenshots:capture
 - `Task Room` hat in v1 bewusst **keinen** Screenshot-Slot.
 - `SalesScreenshot` rendert nur reale Assets; sonst neutralen Placeholder mit Slot-ID, Titel und Status.
 - Fehlende Assets fuehren nicht zu gebrochenen Bildpfaden und nicht zu Build-Fehlern.
+- Verbindliche Regeln und Guardrails: `docs/screenshots.md`.
 
 ## Print-/PDF-Ansichten
 

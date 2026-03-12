@@ -11,19 +11,20 @@ function statusBadgeClass(status: ScreenshotContractItem["status"]): string {
 }
 
 export async function SalesScreenshot({ screenshot }: SalesScreenshotProps): Promise<JSX.Element> {
-  const hasAsset = await hasScreenshotAsset(screenshot.assetPath);
+  const imagePath = typeof screenshot.assetPath === "string" ? screenshot.assetPath : null;
+  const hasAsset = await hasScreenshotAsset(imagePath);
   const displayStatus = hasAsset ? "available" : screenshot.status;
 
   return (
     <article className="screenshot-card">
       <h3>{screenshot.title}</h3>
 
-      {hasAsset ? (
+      {hasAsset && imagePath ? (
         // Intentionally using `img`: only render when file exists to avoid broken paths.
         // eslint-disable-next-line @next/next/no-img-element
         <img
           className="screenshot-card__image"
-          src={screenshot.assetPath}
+          src={imagePath}
           alt={screenshot.caption}
           loading="lazy"
         />
