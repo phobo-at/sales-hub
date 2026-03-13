@@ -36,10 +36,6 @@ export function getDifferentiatorScreenshot(module: ModuleId): ScreenshotContrac
   return getScreenshotsByModule(module).find((item) => item.purpose === "differentiator") ?? null;
 }
 
-export function getScreenshotsForModule(module: ModuleId): ScreenshotContractItem[] {
-  return getScreenshotsByModule(module);
-}
-
 export async function hasScreenshotAsset(assetPath: string | null | undefined): Promise<boolean> {
   if (typeof assetPath !== "string") {
     return false;
