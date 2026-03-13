@@ -1,7 +1,10 @@
 type WhistleblowingMarketingScreenVariant = "inbox" | "case-detail-ai" | "summary-ai";
 
+export const DEMO_DATA_DATE = "12.03.2026";
+
 interface WhistleblowingMarketingScreenProps {
   variant: WhistleblowingMarketingScreenVariant;
+  dataDate?: string;
 }
 
 const INBOX_ROWS = [
@@ -172,7 +175,8 @@ function renderVariantBody(variant: WhistleblowingMarketingScreenVariant): JSX.E
 }
 
 export function WhistleblowingMarketingScreen({
-  variant
+  variant,
+  dataDate = DEMO_DATA_DATE
 }: WhistleblowingMarketingScreenProps): JSX.Element {
   return (
     <section className="marketing-shot">
@@ -182,7 +186,7 @@ export function WhistleblowingMarketingScreen({
             <strong>.LOUPE Whistleblowing</strong>
             <span> Vertriebs-Capture-Ansicht</span>
           </div>
-          <div>Demo-Datenstand: 12.03.2026</div>
+          <div>Demo-Datenstand: {dataDate}</div>
         </header>
         <div className="marketing-shot__canvas" data-testid="screen-canvas">
           {renderVariantBody(variant)}
