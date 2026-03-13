@@ -135,9 +135,9 @@ const SCREENSHOT_CONTRACT_META_BY_ID = {
   },
   "policy-navigator-olex-qa": {
     module: "policy-navigator",
-    title: "Policy Navigator OLEX Q&A",
+    title: "Policy Navigator .LOUPE Olex Q&A",
     purpose: "differentiator",
-    caption: "Kontextbezogene Antworten erleichtern das Verstehen komplexer Richtlinien.",
+    caption: ".LOUPE Olex erleichtert mit kontextbezogenen Antworten das Verstehen komplexer Richtlinien.",
     status: "missing",
     assetPath: "/assets/screenshots/policy-navigator-olex-qa.png",
     sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."

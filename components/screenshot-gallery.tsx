@@ -15,8 +15,14 @@ export function ScreenshotGallery({ screenshotIds, title }: ScreenshotGalleryPro
   const screenshots = getScreenshotsByIds(screenshotIds);
 
   return (
-    <section className="section" id="screenshots">
-      <h2>{title ?? "Screenshots"}</h2>
+    <section className="section section--soft section--screenshots" id="screenshots">
+      <div className="section__header">
+        <span className="eyebrow">Product surfaces</span>
+        <h2>{title ?? "Screenshots"}</h2>
+        <p>
+          Freigegebene Produktansichten und robuste Placeholder-Darstellung fuer fehlende Assets.
+        </p>
+      </div>
       <div className="screenshot-grid">
         {screenshots.map((screenshot) => (
           <SalesScreenshot key={screenshot.id} screenshot={screenshot} />

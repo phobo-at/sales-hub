@@ -6,11 +6,11 @@ summary: "Der Use Case zeigt, wie Richtlinien zielgruppengerecht ausgerollt, ver
 problem: "Unternehmen brauchen belastbare Nachweise zur Richtlinienkommunikation, ohne Nutzer mit Dokumentlast zu ueberfordern."
 outcomes:
   - "Zentraler Richtlinienzugang fuer alle relevanten Zielgruppen."
-  - "Besseres Verstaendnis durch kontextbezogene Rueckfragen."
+  - "Besseres Verstaendnis durch kontextbezogene Rueckfragen mit .LOUPE Olex."
   - "Revisionssichere Lesebestaetigungen pro Richtlinienversion."
 storySteps:
   - "Neue Richtlinie wird strukturiert publiziert und adressiert."
-  - "Nutzende klaeren offene Fragen ueber die Q&A-Funktion."
+  - "Nutzende klaeren offene Fragen ueber die .LOUPE Olex Q&A-Funktion."
   - "Lesebestaetigungen werden nachvollziehbar erfasst."
   - "Compliance kann Nachweise jederzeit auswerten."
 modules:

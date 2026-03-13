@@ -1,10 +1,14 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { AiAssistHighlight } from "@/components/ai-assist-highlight";
 import { CtaSection } from "@/components/cta-section";
+import { DetailHero } from "@/components/detail-hero";
+import { OlexBadge } from "@/components/olex-badge";
 import { ScreenshotGallery } from "@/components/screenshot-gallery";
 import { SectionBlock } from "@/components/section-block";
 import { USE_CASE_SLUGS, type UseCaseSlug } from "@/lib/domain";
-import { getUseCaseContent } from "@/lib/content-loader";
+import { getAllModuleContent, getUseCaseContent } from "@/lib/content-loader";
+import { getOlexSignal } from "@/lib/olex";
 
 interface UseCasePageProps {
   params: { slug: string };
@@ -16,54 +20,120 @@ export async function generateStaticParams(): Promise<Array<{ slug: UseCaseSlug 
 
 export default async function UseCasePage({ params }: UseCasePageProps): Promise<JSX.Element> {
   const slug = params.slug as UseCaseSlug;
-  const useCase = await getUseCaseContent(slug);
+  const [useCase, modules] = await Promise.all([getUseCaseContent(slug), getAllModuleContent()]);
 
   if (!useCase) {
     notFound();
   }
 
+  const moduleMap = new Map(modules.map((module) => [module.slug, module.title]));
+  const olexSignal = useCase.modules.map((moduleId) => getOlexSignal(moduleId)).find(Boolean) ?? null;
+
   return (
     <>
-      <section className="hero">
-        <h1>{useCase.title}</h1>
-        <h2>{useCase.subtitle}</h2>
-        <p>{useCase.summary}</p>
-        <p>
-          <strong>Problem:</strong> {useCase.problem}
-        </p>
-      </section>
+      <DetailHero
+        eyebrow="Use Case story"
+        title={useCase.title}
+        subtitle={useCase.subtitle}
+        description={useCase.summary}
+        problem={useCase.problem}
+        breadcrumbs={[
+          { label: "Start", href: "/" },
+          { label: "Use Cases" },
+          { label: useCase.title }
+        ]}
+        meta={[
+          { label: "Beteiligte Module", value: `${useCase.modules.length} Module` },
+          { label: "Outcomes", value: `${useCase.outcomes.length} Resultate` },
+          { label: "Screenshots", value: `${useCase.screenshots.length} relevante Slots` }
+        ]}
+        actions={
+          <>
+            <Link className="cta-button" href="#screenshots">
+              Screenshots ansehen
+            </Link>
+            <Link className="button-secondary" href={`/print/use-cases/${useCase.slug}`}>
+              Print-Version
+            </Link>
+          </>
+        }
+        badges={
+          <>
+            {olexSignal ? <OlexBadge /> : null}
+            {useCase.modules.map((moduleId) => (
+              <span className="tag tag--neutral" key={moduleId}>
+                {moduleMap.get(moduleId) ?? moduleId}
+              </span>
+            ))}
+          </>
+        }
+        aside={
+          olexSignal ? (
+            <AiAssistHighlight
+              eyebrow={olexSignal.microLabel}
+              title={olexSignal.highlightTitle}
+              text={olexSignal.highlightText}
+            />
+          ) : (
+            <article className="surface-card surface-card--soft detail-note">
+              <span className="eyebrow">Outcome focus</span>
+              <p>{useCase.outcomes[0]}</p>
+            </article>
+          )
+        }
+      />
 
-      <SectionBlock title="Beteiligte Module">
+      <SectionBlock
+        title="Beteiligte Module"
+        eyebrow="Platform coverage"
+        description="Der Use Case verbindet konkrete Plattform-Bausteine zu einer durchgaengigen Enterprise-Story."
+        variant="soft"
+      >
         <div className="tag-list">
           {useCase.modules.map((moduleId) => (
-            <span className="tag" key={moduleId}>
-              {moduleId}
+            <span className="tag tag--neutral" key={moduleId}>
+              {moduleMap.get(moduleId) ?? moduleId}
             </span>
           ))}
         </div>
       </SectionBlock>
 
-      <SectionBlock title="Outcomes">
-        <ul className="list">
-          {useCase.outcomes.map((outcome) => (
-            <li key={outcome}>{outcome}</li>
-          ))}
-        </ul>
-      </SectionBlock>
+      <SectionBlock
+        title="Outcomes und Ablauf"
+        eyebrow="Journey"
+        description="Die Wirkung wird mit klaren Resultaten und einem nachvollziehbaren Schritt-fuer-Schritt-Ablauf beschrieben."
+      >
+        <div className="story-layout">
+          <article className="surface-card surface-card--soft">
+            <h3>Outcomes</h3>
+            <ul className="list">
+              {useCase.outcomes.map((outcome) => (
+                <li key={outcome}>{outcome}</li>
+              ))}
+            </ul>
+          </article>
 
-      <SectionBlock title="Ablauf in Schritten">
-        <ol className="list">
-          {useCase.storySteps.map((step) => (
-            <li key={step}>{step}</li>
-          ))}
-        </ol>
+          <article className="surface-card">
+            <h3>Ablauf in Schritten</h3>
+            <ol className="list">
+              {useCase.storySteps.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ol>
+          </article>
+        </div>
       </SectionBlock>
 
       <ScreenshotGallery screenshotIds={useCase.screenshots} title="Relevante Screenshots" />
 
-      <SectionBlock title="Print-Ansicht">
-        <p>
-          <Link href={`/print/use-cases/${useCase.slug}`} className="link-inline">
+      <SectionBlock
+        title="Print-Ansicht"
+        eyebrow="Sales enablement"
+        description="Der Use Case laesst sich direkt in eine druckbare oder PDF-faehige Fassung ueberfuehren."
+        variant="soft"
+      >
+        <p className="section__actions">
+          <Link href={`/print/use-cases/${useCase.slug}`} className="button-secondary">
             Zur Print-Version
           </Link>
         </p>

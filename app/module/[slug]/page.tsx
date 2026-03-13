@@ -1,10 +1,15 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { AiAssistHighlight } from "@/components/ai-assist-highlight";
 import { CtaSection } from "@/components/cta-section";
+import { DetailHero } from "@/components/detail-hero";
+import { ModuleOlexSection } from "@/components/module-olex-section";
+import { OlexBadge } from "@/components/olex-badge";
 import { ScreenshotGallery } from "@/components/screenshot-gallery";
 import { SectionBlock } from "@/components/section-block";
 import { MODULE_IDS, type ModuleId } from "@/lib/domain";
 import { getModuleContent } from "@/lib/content-loader";
+import { getOlexSignal } from "@/lib/olex";
 
 interface ModulePageProps {
   params: { slug: string };
@@ -22,67 +27,149 @@ export default async function ModulePage({ params }: ModulePageProps): Promise<J
     notFound();
   }
 
+  const olexSignal = getOlexSignal(moduleContent.slug);
+
   return (
     <>
-      <section className="hero">
-        <h1>{moduleContent.title}</h1>
-        <h2>{moduleContent.subtitle}</h2>
-        <p>{moduleContent.shortDescription}</p>
-        <p>
-          <strong>Problem:</strong> {moduleContent.problem}
-        </p>
-      </section>
+      <DetailHero
+        eyebrow="Module story"
+        title={moduleContent.title}
+        subtitle={moduleContent.subtitle}
+        description={moduleContent.shortDescription}
+        problem={moduleContent.problem}
+        breadcrumbs={[
+          { label: "Start", href: "/" },
+          { label: "Module" },
+          { label: moduleContent.title }
+        ]}
+        meta={[
+          { label: "Zielgruppen", value: `${moduleContent.targetGroups.length} Teams` },
+          { label: "Story steps", value: `${moduleContent.storySteps.length} Schritte` },
+          {
+            label: "Screenshots",
+            value:
+              moduleContent.slug === "task-room"
+                ? "v1 ohne Screenshot"
+                : `${moduleContent.screenshots.length} freigegebene Slots`
+          }
+        ]}
+        actions={
+          <>
+            {moduleContent.slug !== "task-room" ? (
+              <Link className="cta-button" href="#screenshots">
+                Screenshots ansehen
+              </Link>
+            ) : null}
+            <Link className="button-secondary" href={`/print/module/${moduleContent.slug}`}>
+              Print-Version
+            </Link>
+          </>
+        }
+        badges={
+          <>
+            {olexSignal ? <OlexBadge label={olexSignal.badgeLabel} /> : null}
+            {moduleContent.targetGroups.map((item) => (
+              <span className="tag tag--neutral" key={item}>
+                {item}
+              </span>
+            ))}
+          </>
+        }
+        aside={
+          olexSignal ? (
+            <AiAssistHighlight
+              eyebrow={olexSignal.microLabel}
+              title={olexSignal.highlightTitle}
+              text={olexSignal.highlightText}
+            />
+          ) : (
+            <article className="surface-card surface-card--soft detail-note">
+              <span className="eyebrow">Sales lens</span>
+              <p>{moduleContent.proofPoints[0]}</p>
+            </article>
+          )
+        }
+      />
 
-      <SectionBlock title="Zielgruppen">
-        <div className="tag-list">
-          {moduleContent.targetGroups.map((item) => (
-            <span className="tag" key={item}>
-              {item}
-            </span>
-          ))}
+      <SectionBlock
+        title="Outcome und Story"
+        eyebrow="Modulstory"
+        description="Der Nutzen wird als klare Buyer-Erzaehlung gefasst und nicht nur als Feature-Liste praesentiert."
+        variant="soft"
+      >
+        <div className="story-layout">
+          <article className="surface-card surface-card--soft">
+            <h3>Nutzen</h3>
+            <ul className="list">
+              {moduleContent.benefits.map((benefit) => (
+                <li key={benefit}>{benefit}</li>
+              ))}
+            </ul>
+          </article>
+
+          <article className="surface-card">
+            <h3>So funktioniert es in der Story</h3>
+            <ol className="list">
+              {moduleContent.storySteps.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ol>
+          </article>
         </div>
       </SectionBlock>
 
-      <SectionBlock title="Nutzen">
-        <ul className="list">
-          {moduleContent.benefits.map((benefit) => (
-            <li key={benefit}>{benefit}</li>
-          ))}
-        </ul>
-      </SectionBlock>
+      {olexSignal ? (
+        <SectionBlock
+          title=".LOUPE Olex in diesem Modul"
+          eyebrow="AI differentiation"
+          description="Die AI-Ebene wird im Produktkontext sichtbar und bleibt ruhig eingebettet in den Compliance-Prozess."
+          variant="accent"
+        >
+          <ModuleOlexSection moduleId={moduleContent.slug} />
+        </SectionBlock>
+      ) : null}
 
-      <SectionBlock title="So funktioniert es in der Story">
-        <ol className="list">
-          {moduleContent.storySteps.map((step) => (
-            <li key={step}>{step}</li>
-          ))}
-        </ol>
-      </SectionBlock>
-
-      <SectionBlock title="Feature- und Benefit-Block">
+      <SectionBlock
+        title="Feature- und Benefit-Block"
+        eyebrow="Produktmechanik"
+        description="Jede Karte verbindet eine konkrete Produktflaeche mit dem relevanten Nutzen fuer Demo- und Kaufgespraeche."
+      >
         <div className="grid grid--cards">
-          {moduleContent.features.map((feature) => (
-            <article className="card" key={feature}>
+          {moduleContent.features.map((feature, index) => (
+            <article className="card feature-card" key={feature}>
+              <div className="feature-card__header">
+                <span className="eyebrow">Feature {index + 1}</span>
+                {/ki|olex/i.test(feature) ? <OlexBadge tone="soft" /> : null}
+              </div>
               <h3>{feature}</h3>
-              <p>
-                Das Feature unterstuetzt die Umsetzung des Prozesses mit klarer Verantwortung und
-                nachvollziehbarer Dokumentation.
-              </p>
+              <p>{moduleContent.benefits[index % moduleContent.benefits.length]}</p>
             </article>
           ))}
         </div>
       </SectionBlock>
 
-      <SectionBlock title="Proof Points">
-        <ul className="list">
+      <SectionBlock
+        title="Proof Points"
+        eyebrow="Enterprise fit"
+        description="Die Seite bleibt auf Outcome, Governance und Vertrauen fokussiert."
+      >
+        <div className="grid grid--cards">
           {moduleContent.proofPoints.map((point) => (
-            <li key={point}>{point}</li>
+            <article key={point} className="surface-card surface-card--soft proof-point">
+              <span className="eyebrow">Proof</span>
+              <p>{point}</p>
+            </article>
           ))}
-        </ul>
+        </div>
       </SectionBlock>
 
       {moduleContent.slug === "task-room" ? (
-        <SectionBlock title="Task Room Teaser (v1 ohne Screenshot)">
+        <SectionBlock
+          title="Task Room Teaser (v1 ohne Screenshot)"
+          eyebrow="v1 boundary"
+          description="Task Room bleibt bewusst screenshot-frei und wird im Hub als koordinierende Anschlussfaehigkeit gezeigt."
+          variant="soft"
+        >
           <p>
             Task Room strukturiert Massnahmen und Aufgaben ueber Modulgrenzen hinweg. In v1 wird
             bewusst kein Screenshot angezeigt.
@@ -92,13 +179,18 @@ export default async function ModulePage({ params }: ModulePageProps): Promise<J
         <ScreenshotGallery screenshotIds={moduleContent.screenshots} title="Freigegebene Screenshots" />
       )}
 
-      <SectionBlock title="Print-Ansicht">
+      <SectionBlock
+        title="Print-Ansicht"
+        eyebrow="Sales enablement"
+        description="Alle zentralen Argumente bleiben auch in der Print-/PDF-Route sauber lesbar."
+        variant="soft"
+      >
         <p>
           Diese Seite kann direkt gedruckt werden oder ueber die dedizierte Print-Route exportiert
           werden.
         </p>
-        <p>
-          <Link href={`/print/module/${moduleContent.slug}`} className="link-inline">
+        <p className="section__actions">
+          <Link href={`/print/module/${moduleContent.slug}`} className="button-secondary">
             Zur Print-Version
           </Link>
         </p>

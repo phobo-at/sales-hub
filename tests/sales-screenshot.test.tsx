@@ -77,4 +77,23 @@ describe("SalesScreenshot", () => {
       await fs.rm(absoluteAssetPath, { force: true });
     }
   });
+
+  it("renders the Olex badge for AI-marked screenshot surfaces", async () => {
+    const screenshot: ScreenshotContractItem = {
+      id: "policy-navigator-olex-qa",
+      module: "policy-navigator",
+      title: "Policy Navigator .LOUPE Olex Q&A",
+      purpose: "differentiator",
+      caption: ".LOUPE Olex beantwortet Richtlinienfragen im Kontext.",
+      status: "missing",
+      assetPath: null,
+      sourceNote: "Test"
+    };
+
+    const element = await SalesScreenshot({ screenshot });
+    const html = renderToStaticMarkup(element);
+
+    expect(html).toContain(".LOUPE Olex");
+    expect(html).toContain("Differentiator");
+  });
 });

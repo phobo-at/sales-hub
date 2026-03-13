@@ -6,12 +6,12 @@ summary: "Der Use Case zeigt den End-to-End-Ablauf fuer eine sichere Hinweisaufn
 problem: "Hinweisprozesse scheitern oft an unklaren Zustaendigkeiten, Medienbruechen und fehlender Nachvollziehbarkeit."
 outcomes:
   - "Sichere und vertrauliche Hinweisaufnahme mit klaren Prozessschritten."
-  - "Schnellere Fallbearbeitung durch standardisierte Struktur und KI-Unterstuetzung."
+  - "Schnellere Fallbearbeitung durch standardisierte Struktur und .LOUPE Olex-Unterstuetzung."
   - "Auditfaehige Dokumentation aller Entscheidungen."
 storySteps:
   - "Hinweis wird sicher eingereicht und automatisch kategorisiert."
   - "Fall wird im Team priorisiert und strukturiert bearbeitet."
-  - "KI liefert Zusammenfassungen fuer schnellere Entscheidungsrunden."
+  - ".LOUPE Olex liefert Zusammenfassungen fuer schnellere Entscheidungsrunden."
   - "Ergebnisse werden dokumentiert und in Folgemassnahmen ueberfuehrt."
 modules:
   - "whistleblowing"

@@ -56,3 +56,13 @@ Der Hub ersetzt statische, screenshot-lastige Praesentationen durch eine struktu
 ## Noch offene Asset-Arbeit
 
 Der Pilot fuer Whistleblowing (3 Slots) ist auf echte, automatisierbare Capture-Routen verdrahtet. Die restlichen freigegebenen Slots muessen schrittweise in das Manifest uebernommen und dann ueber die gleiche Pipeline erzeugt werden.
+
+## UI-Refresh Maerz 2026
+
+- Das visuelle System nutzt jetzt klarer gestaffelte Surfaces, weisse Default-Cards, staerkere Typografie und eine route-aware Navigation mit separater Modul-Rail.
+- `.LOUPE Olex` ist als ruhige AI-Ebene in Header, Startseite, Whistleblowing und Policy Navigator sichtbar integriert.
+- Neue wiederverwendbare UI-Bausteine:
+  - `OlexBadge`
+  - `OlexCallout`
+  - `AiAssistHighlight`
+- Sichtbare Olex-Copy wurde auf `.LOUPE Olex` vereinheitlicht; technische Slot-IDs und Contract-Grenzen bleiben unveraendert.

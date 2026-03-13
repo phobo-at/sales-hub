@@ -12,14 +12,18 @@ export function CtaSection({ title, text, label, href }: CtaSectionProps): JSX.E
   const resolvedHref = getPrimaryCtaUrl(href);
 
   return (
-    <section className="section cta">
-      <h2>{title}</h2>
-      <p>{text}</p>
-      <p>
+    <section className="section section--accent cta">
+      <div className="cta__content">
+        <span className="eyebrow">Sales next step</span>
+        <h2>{title}</h2>
+        <p>{text}</p>
+      </div>
+      <div className="cta__actions">
         <Link className="cta-button" href={resolvedHref}>
           {label}
         </Link>
-      </p>
+        <p className="cta__note">Optional mit individueller Agenda, Fokusmodulen und Live-Fragerunde.</p>
+      </div>
     </section>
   );
 }
