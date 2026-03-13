@@ -59,14 +59,14 @@ export default async function ModulePage({ params }: ModulePageProps): Promise<J
           { label: moduleContent.title }
         ]}
         meta={[
-          { label: "Zielgruppen", value: `${moduleContent.targetGroups.length} Teams` },
+          { label: "Zielgruppen", value: moduleContent.targetGroups.join(", ") },
           { label: "Story-Schritte", value: `${moduleContent.storySteps.length} Schritte` },
           {
             label: "Screenshots",
             value:
               moduleContent.slug === "task-room"
-                ? "v1 ohne Screenshots"
-                : `${moduleContent.screenshots.length} freigegebene Slots`
+                ? "Coming soon"
+                : `${moduleContent.screenshots.length} verfügbar`
           }
         ]}
         actions={
@@ -109,13 +109,13 @@ export default async function ModulePage({ params }: ModulePageProps): Promise<J
 
       <SectionBlock
         title="Nutzen und Ablauf"
-        eyebrow="Modulstory"
-        description="Der Nutzen wird als klare Buyer-Erzählung geführt und nicht als lose Feature-Liste."
+        eyebrow="Wie es funktioniert"
+        description={moduleContent.subtitle}
         variant="soft"
       >
         <div className="story-layout">
           <article className="surface-card surface-card--soft">
-            <h3>Nutzen</h3>
+            <h3>Was Sie gewinnen</h3>
             <ul className="list">
               {moduleContent.benefits.map((benefit) => (
                 <li key={benefit}>{benefit}</li>
@@ -124,7 +124,7 @@ export default async function ModulePage({ params }: ModulePageProps): Promise<J
           </article>
 
           <article className="surface-card">
-            <h3>So funktioniert es in der Story</h3>
+            <h3>So läuft es in der Praxis</h3>
             <ol className="list">
               {moduleContent.storySteps.map((step) => (
                 <li key={step}>{step}</li>
@@ -138,7 +138,7 @@ export default async function ModulePage({ params }: ModulePageProps): Promise<J
         <SectionBlock
           title=".LOUPE Olex in diesem Modul"
           eyebrow="KI-Differenzierung"
-          description="Die KI-Ebene wird im Produktkontext sichtbar und bleibt ruhig im Compliance-Prozess eingebettet."
+          description="Kontextsensitive KI-Unterstützung direkt im Compliance-Prozess – ohne Medienbrüche."
           variant="accent"
         >
           <ModuleOlexSection moduleId={moduleContent.slug} />
@@ -146,9 +146,9 @@ export default async function ModulePage({ params }: ModulePageProps): Promise<J
       ) : null}
 
       <SectionBlock
-        title="Funktionen und Nutzen"
+        title="Funktionen im Detail"
         eyebrow="Produktmechanik"
-        description="Jede Karte verbindet eine konkrete Produktfläche mit dem relevanten Nutzen für Demo- und Kaufgespräche."
+        description="Konkrete Produktfähigkeiten und ihr direkter Nutzen für Ihr Compliance-Team."
       >
         <div className="grid grid--cards">
           {moduleContent.features.map((feature, index) => (
@@ -158,16 +158,16 @@ export default async function ModulePage({ params }: ModulePageProps): Promise<J
                 {/ki|olex/i.test(feature) ? <OlexBadge tone="soft" /> : null}
               </div>
               <h3>{feature}</h3>
-              <p>{moduleContent.benefits[index]}</p>
+              {moduleContent.benefits[index] ? <p>{moduleContent.benefits[index]}</p> : null}
             </article>
           ))}
         </div>
       </SectionBlock>
 
       <SectionBlock
-        title="Nachweise"
-        eyebrow="Enterprise-Fit"
-        description="Die Seite bleibt auf Wirkung, Governance und Vertrauen fokussiert."
+        title="Enterprise-Fit"
+        eyebrow="Nachweise"
+        description="Warum .LOUPE in anspruchsvollen Enterprise-Umgebungen wirkt."
       >
         <div className="grid grid--cards">
           {moduleContent.proofPoints.map((point) => (
@@ -181,35 +181,14 @@ export default async function ModulePage({ params }: ModulePageProps): Promise<J
 
       {moduleContent.slug === "task-room" ? (
         <SectionBlock
-          title="Task Room Teaser (v1 ohne Screenshots)"
-          eyebrow="v1-Grenze"
-          description="Task Room bleibt bewusst screenshot-frei und wird im Hub als koordinierende Anschlussfähigkeit gezeigt."
+          title="Task Room"
+          eyebrow="Koordination über Module"
+          description="Task Room strukturiert Maßnahmen und Aufgaben über Modulgrenzen hinweg – der zentrale Knotenpunkt für modulübergreifende Compliance-Aufgaben."
           variant="soft"
-        >
-          <p>
-            Task Room strukturiert Maßnahmen und Aufgaben über Modulgrenzen hinweg. In v1 wird
-            bewusst kein Screenshot angezeigt.
-          </p>
-        </SectionBlock>
+        />
       ) : (
-        <ScreenshotGallery screenshotIds={moduleContent.screenshots} title="Freigegebene Screenshots" />
+        <ScreenshotGallery screenshotIds={moduleContent.screenshots} title="Produktscreenshots" />
       )}
-
-      <SectionBlock
-        title="Print-Ansicht"
-        eyebrow="Vertriebseinsatz"
-        description="Die Argumentation bleibt auch in der Print-/PDF-Route kompakt und sauber lesbar."
-        variant="minimal"
-      >
-        <p>
-          Diese Seite kann direkt gedruckt oder über die dedizierte Print-Route exportiert werden.
-        </p>
-        <p className="section__actions">
-          <Link href={`/print/module/${moduleContent.slug}`} className="button-secondary">
-            Zur Print-Version
-          </Link>
-        </p>
-      </SectionBlock>
 
       <CtaSection
         title="Nächster Schritt"

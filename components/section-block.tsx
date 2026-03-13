@@ -1,6 +1,6 @@
 interface SectionBlockProps {
   title: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   id?: string;
   eyebrow?: string;
   description?: string;

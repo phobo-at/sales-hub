@@ -65,18 +65,22 @@ const expectedSlotsByModule = SCREENSHOT_CONTRACT.reduce(
   {} as Record<Exclude<ModuleId, "task-room">, ScreenshotSlotId[]>
 );
 
-function parseMarkdownFile<T>(raw: string, schema: z.ZodSchema<T>, filePath: string): T {
+function parseMarkdownFile<S extends z.ZodTypeAny>(
+  raw: string,
+  schema: S,
+  filePath: string
+): z.output<S> {
   const parsed = matter(raw);
   const result = schema.safeParse(parsed.data);
 
   if (!result.success) {
     const reason = result.error.issues
-      .map((issue) => `${issue.path.join(".") || "root"}: ${issue.message}`)
+      .map((issue: z.ZodIssue) => `${issue.path.join(".") || "root"}: ${issue.message}`)
       .join("; ");
     throw new Error(`Ungültiges Frontmatter in ${filePath}: ${reason}`);
   }
 
-  return result.data;
+  return result.data as z.output<S>;
 }
 
 async function readFileUtf8(filePath: string): Promise<string> {

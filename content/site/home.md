@@ -1,14 +1,13 @@
 ---
-title: ".LOUPE Demo- und Sales-Hub"
-subtitle: "Outcome-first Plattform für Compliance, Integrität und Governance"
-intro: "Der Hub ersetzt die klassische Screenshot-Präsentation durch strukturierte Sales-Stories, modulare Inhalte und eine sichtbare .LOUPE Olex KI-Ebene für anspruchsvolle Compliance-Workflows."
-ctaTitle: "Demo statt Folienwust"
-ctaText: "Wir zeigen in 45 Minuten, wie .LOUPE Ihre Prozesse von Hinweisaufnahme bis Richtlinienbestätigung messbar beschleunigt."
+title: ".LOUPE"
+subtitle: "Compliance, Integrität und Governance – strukturiert, messbar und KI-gestützt."
+intro: "Von der Hinweisaufnahme über Richtlinienbestätigung bis zur lückenlosen Dokumentation: .LOUPE verbindet alle Compliance-Prozesse in einer integrierten Plattform."
+ctaTitle: "Überzeugen Sie sich in 45 Minuten"
+ctaText: "Wir zeigen Ihnen, wie .LOUPE Ihre Prozesse von der Hinweisaufnahme bis zur Richtlinienbestätigung messbar beschleunigt – zugeschnitten auf Ihre Prioritäten."
 ctaLabel: "Demo anfragen"
 whyLoupe:
-  - "Outcome-first Struktur: Probleme, Nutzen und Story-Schritte stehen vor UI-Details."
-  - ".LOUPE Olex ist als eingebettete KI-Erweiterung sichtbar, ohne den Enterprise-Charakter der Plattform zu verlieren."
-  - "Wartungsarm: Content liegt typisiert im Repository und ist ohne CMS steuerbar."
-  - "Robust: Fehlende Screenshots führen nie zu kaputten Ansichten oder Build-Abbrüchen."
-  - "Deploy-ready: Railway heute, AWS-fähig morgen, ohne vendor-spezifische Lock-ins."
+  - "Alle Compliance-Prozesse in einer Plattform – von der Hinweisaufnahme bis zur Richtlinienbestätigung."
+  - "KI-gestützt durch .LOUPE Olex: kontextsensitive Unterstützung ohne Medienbrüche im Compliance-Workflow."
+  - "Enterprise-ready: mandantenfähig, DSGVO-konform und integrierbar in bestehende IT-Landschaften."
+  - "Messbare Wirkung: kürzere Bearbeitungszeiten, vollständige Dokumentation, sichere Revisionsfestigkeit."
 ---

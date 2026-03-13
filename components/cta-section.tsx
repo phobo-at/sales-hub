@@ -14,7 +14,7 @@ export function CtaSection({ title, text, label, href }: CtaSectionProps): JSX.E
   return (
     <section className="section section--accent cta">
       <div className="cta__content">
-        <span className="eyebrow">Nächster Vertriebsschritt</span>
+        <span className="eyebrow">Nächste Schritte</span>
         <h2>{title}</h2>
         <p>{text}</p>
       </div>

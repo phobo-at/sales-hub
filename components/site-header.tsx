@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
+import React from "react";
 import { OlexBadge } from "@/components/olex-badge";
 
 const primaryLinks = [
@@ -100,9 +100,9 @@ export function SiteHeader({ ctaHref }: SiteHeaderProps): JSX.Element {
           </Link>
 
           <div className="site-header__actions">
-            <div className="site-header__signal" aria-label="KI-Signal">
+            <div className="site-header__signal">
               <OlexBadge tone="soft" />
-              <span>KI-Ebene für geführte Demos</span>
+              <span>Olex KI-Assistent</span>
             </div>
             <Link className="cta-button" href={ctaHref}>
               Demo anfragen
