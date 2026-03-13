@@ -153,8 +153,17 @@ export async function getAllModuleContent(): Promise<ModuleContent[]> {
 }
 
 export async function getModuleContent(slug: ModuleId): Promise<ModuleContent | null> {
-  const modules = await getAllModuleContent();
-  return modules.find((item) => item.slug === slug) ?? null;
+  const filePath = path.join(MODULE_DIR, `${slug}.md`);
+  try {
+    const raw = await readFileUtf8(filePath);
+    const content = parseMarkdownFile(raw, moduleSchema, filePath);
+    assertTaskRoomHasNoScreenshots(content);
+    assertModuleScreenshotsMatchContract(content);
+    return content;
+  } catch (err) {
+    if ((err as NodeJS.ErrnoException).code === "ENOENT") return null;
+    throw err;
+  }
 }
 
 export async function getAllUseCaseContent(): Promise<UseCaseContent[]> {
@@ -177,8 +186,16 @@ export async function getAllUseCaseContent(): Promise<UseCaseContent[]> {
 }
 
 export async function getUseCaseContent(slug: UseCaseSlug): Promise<UseCaseContent | null> {
-  const useCases = await getAllUseCaseContent();
-  return useCases.find((item) => item.slug === slug) ?? null;
+  const filePath = path.join(USE_CASE_DIR, `${slug}.md`);
+  try {
+    const raw = await readFileUtf8(filePath);
+    const content = parseMarkdownFile(raw, useCaseSchema, filePath);
+    assertUseCaseScreenshotsAreRelevant(content);
+    return content;
+  } catch (err) {
+    if ((err as NodeJS.ErrnoException).code === "ENOENT") return null;
+    throw err;
+  }
 }
 
 export async function validateContent(): Promise<void> {
