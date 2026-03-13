@@ -142,7 +142,7 @@ export default async function ModulePage({ params }: ModulePageProps): Promise<J
                 {/ki|olex/i.test(feature) ? <OlexBadge tone="soft" /> : null}
               </div>
               <h3>{feature}</h3>
-              <p>{moduleContent.benefits[index % moduleContent.benefits.length]}</p>
+              <p>{moduleContent.benefits[index]}</p>
             </article>
           ))}
         </div>
