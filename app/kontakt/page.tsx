@@ -1,11 +1,14 @@
 export default function KontaktPage(): JSX.Element {
   return (
     <section className="section">
-      <h1>Kontakt und Demo-Anfrage</h1>
+      <h1>Demo anfragen</h1>
       <p>
-        Bitte hinterlege in der Umgebung `LOUPE_CTA_URL`, um auf den produktiven Kontaktkanal
-        zu verlinken. Diese Fallback-Seite stellt sicher, dass der Hub ohne harte externe
-        Abhängigkeit lauffähig bleibt.
+        Wir zeigen Ihnen in 45 Minuten, wie .LOUPE Ihre Compliance-Prozesse messbar beschleunigt
+        — von der Hinweisaufnahme bis zur Richtlinienbestätigung.
+      </p>
+      <p>
+        Schreiben Sie uns:{" "}
+        <a href="mailto:demo@loupe.de">demo@loupe.de</a>
       </p>
     </section>
   );
