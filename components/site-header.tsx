@@ -25,7 +25,6 @@ const primaryLinks = [
 ] as const;
 
 const moduleLinks = [
-  { href: "/", label: "Start" },
   { href: "/module/whistleblowing", label: "Whistleblowing" },
   { href: "/module/policy-navigator", label: "Policy Navigator" },
   { href: "/module/risk", label: "Risk" },
@@ -137,7 +136,7 @@ export function SiteHeader({ ctaHref }: SiteHeaderProps): JSX.Element {
         <div className="site-header__rail-row">
           <span className="site-header__rail-label">Module</span>
           <nav className="site-header__rail" aria-label="Modulnavigation" ref={railRef}>
-            {moduleLinks.slice(1).map((link) => {
+            {moduleLinks.map((link) => {
               const isActive = pathname === link.href;
 
               return (
