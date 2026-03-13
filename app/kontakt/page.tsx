@@ -5,7 +5,7 @@ export default function KontaktPage(): JSX.Element {
       <p>
         Bitte hinterlege in der Umgebung `LOUPE_CTA_URL`, um auf den produktiven Kontaktkanal
         zu verlinken. Diese Fallback-Seite stellt sicher, dass der Hub ohne harte externe
-        Abhaengigkeit lauffaehig bleibt.
+        Abhängigkeit lauffähig bleibt.
       </p>
     </section>
   );

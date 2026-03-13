@@ -2,23 +2,23 @@
 slug: "business-partner"
 title: "Business Partner"
 subtitle: "Partnerprofile und Lieferkettenrisiken systematisch steuern"
-shortDescription: "Business Partner schafft Transparenz ueber Drittparteirisiken und standardisiert Assessments."
+shortDescription: "Business Partner schafft Transparenz über Drittparteirisiken und standardisiert Assessments."
 problem: "Verteilte Partnerdaten und uneinheitliche Assessments erschweren belastbare Risikobewertungen in der Lieferkette."
 benefits:
   - "Ganzheitliche Sicht auf Partner und Risikoprofile."
-  - "Standardisierte Assessments fuer Vergleichbarkeit."
-  - "Bessere Priorisierung von Due-Diligence-Aktivitaeten."
+  - "Standardisierte Assessments für Vergleichbarkeit."
+  - "Bessere Priorisierung von Due-Diligence-Aktivitäten."
 storySteps:
   - "Partner werden zentral erfasst und kategorisiert."
-  - "Risikosignale werden im Profil zusammengefuehrt."
+  - "Risikosignale werden im Profil zusammengeführt."
   - "Assessments erfassen relevante Informationen strukturiert."
-  - "Massnahmen und Entscheidungen werden nachvollziehbar dokumentiert."
+  - "Maßnahmen und Entscheidungen werden nachvollziehbar dokumentiert."
 features:
-  - "Risiko-Overview ueber Partnerportfolio"
+  - "Risiko-Overview über Partnerportfolio"
   - "Profilansicht mit Kernindikatoren"
-  - "Questionnaire fuer standardisierte Assessments"
+  - "Questionnaire für standardisierte Assessments"
 proofPoints:
-  - "Risikobewertungen sind konsistent ueber Regionen und Teams."
+  - "Risikobewertungen sind konsistent über Regionen und Teams."
   - "Entscheidungen basieren auf strukturiertem, vergleichbarem Datenstand."
 targetGroups:
   - "Einkauf"

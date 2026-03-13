@@ -1,25 +1,25 @@
 ---
 slug: "policy-navigator"
 title: "Policy Navigator"
-subtitle: "Richtlinien bereitstellen, verstehen und bestaetigen"
-shortDescription: "Policy Navigator verbindet strukturierte Richtlinienbereitstellung mit .LOUPE Olex-Verstaendnishilfe und Lesebestaetigung."
-problem: "Richtlinien werden oft verteilt abgelegt und nicht konsistent verstanden oder bestaetigt."
+subtitle: "Richtlinien bereitstellen, verstehen und bestätigen"
+shortDescription: "Policy Navigator verbindet strukturierte Richtlinienbereitstellung mit .LOUPE Olex-Verständnishilfe und Lesebestätigung."
+problem: "Richtlinien werden oft verteilt abgelegt und nicht konsistent verstanden oder bestätigt."
 benefits:
   - "Zentrale, versionierte Richtlinienbereitstellung."
-  - "Besseres Verstaendnis durch kontextbezogene .LOUPE Olex Q&A-Unterstuetzung."
-  - "Nachvollziehbare Lesebestaetigung fuer Compliance-Nachweise."
+  - "Besseres Verständnis durch kontextbezogene .LOUPE Olex Q&A-Unterstützung."
+  - "Nachvollziehbare Lesebestätigung für Compliance-Nachweise."
 storySteps:
   - "Richtlinien werden strukturiert publiziert und zielgruppengerecht verteilt."
-  - "Nutzende klaeren Fragen ueber die integrierte .LOUPE Olex Q&A-Unterstuetzung."
-  - "Bestaetigungen werden pro Zielgruppe und Version erfasst."
-  - "Nachweise stehen fuer Audits zentral zur Verfuegung."
+  - "Nutzende klären Fragen über die integrierte .LOUPE Olex Q&A-Unterstützung."
+  - "Bestätigungen werden pro Zielgruppe und Version erfasst."
+  - "Nachweise stehen für Audits zentral zur Verfügung."
 features:
   - "Policy-Overview mit klarer Navigation"
-  - ".LOUPE Olex Q&A fuer kontextbezogene Rueckfragen"
+  - ".LOUPE Olex Q&A für kontextbezogene Rückfragen"
   - "Read Confirmation mit Nachweislogik"
 proofPoints:
-  - "Weniger Missverstaendnisse dank kontextbezogener Erklaerungen."
-  - "Belastbare Nachweise ueber Lesestand und Bestaetigungen."
+  - "Weniger Missverständnisse dank kontextbezogener Erklärungen."
+  - "Belastbare Nachweise über Lesestand und Bestätigungen."
 targetGroups:
   - "Compliance"
   - "HR"

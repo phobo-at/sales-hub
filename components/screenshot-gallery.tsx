@@ -20,7 +20,7 @@ export function ScreenshotGallery({ screenshotIds, title }: ScreenshotGalleryPro
         <span className="eyebrow">Product surfaces</span>
         <h2>{title ?? "Screenshots"}</h2>
         <p>
-          Freigegebene Produktansichten und robuste Placeholder-Darstellung fuer fehlende Assets.
+          Freigegebene Produktansichten und robuste Placeholder-Darstellung für fehlende Assets.
         </p>
       </div>
       <div className="screenshot-grid">

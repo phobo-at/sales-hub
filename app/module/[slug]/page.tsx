@@ -94,7 +94,7 @@ export default async function ModulePage({ params }: ModulePageProps): Promise<J
       <SectionBlock
         title="Outcome und Story"
         eyebrow="Modulstory"
-        description="Der Nutzen wird als klare Buyer-Erzaehlung gefasst und nicht nur als Feature-Liste praesentiert."
+        description="Der Nutzen wird als klare Buyer-Erzählung gefasst und nicht nur als Feature-Liste präsentiert."
         variant="soft"
       >
         <div className="story-layout">
@@ -132,7 +132,7 @@ export default async function ModulePage({ params }: ModulePageProps): Promise<J
       <SectionBlock
         title="Feature- und Benefit-Block"
         eyebrow="Produktmechanik"
-        description="Jede Karte verbindet eine konkrete Produktflaeche mit dem relevanten Nutzen fuer Demo- und Kaufgespraeche."
+        description="Jede Karte verbindet eine konkrete Produktfläche mit dem relevanten Nutzen für Demo- und Kaufgespräche."
       >
         <div className="grid grid--cards">
           {moduleContent.features.map((feature, index) => (
@@ -167,11 +167,11 @@ export default async function ModulePage({ params }: ModulePageProps): Promise<J
         <SectionBlock
           title="Task Room Teaser (v1 ohne Screenshot)"
           eyebrow="v1 boundary"
-          description="Task Room bleibt bewusst screenshot-frei und wird im Hub als koordinierende Anschlussfaehigkeit gezeigt."
+          description="Task Room bleibt bewusst screenshot-frei und wird im Hub als koordinierende Anschlussfähigkeit gezeigt."
           variant="soft"
         >
           <p>
-            Task Room strukturiert Massnahmen und Aufgaben ueber Modulgrenzen hinweg. In v1 wird
+            Task Room strukturiert Maßnahmen und Aufgaben über Modulgrenzen hinweg. In v1 wird
             bewusst kein Screenshot angezeigt.
           </p>
         </SectionBlock>
@@ -186,7 +186,7 @@ export default async function ModulePage({ params }: ModulePageProps): Promise<J
         variant="soft"
       >
         <p>
-          Diese Seite kann direkt gedruckt werden oder ueber die dedizierte Print-Route exportiert
+          Diese Seite kann direkt gedruckt werden oder über die dedizierte Print-Route exportiert
           werden.
         </p>
         <p className="section__actions">
@@ -197,8 +197,8 @@ export default async function ModulePage({ params }: ModulePageProps): Promise<J
       </SectionBlock>
 
       <CtaSection
-        title="Naechster Schritt"
-        text="Wir zeigen den Prozess gerne in einer zugeschnittenen Live-Demo mit Ihren Prioritaeten."
+        title="Nächster Schritt"
+        text="Wir zeigen den Prozess gerne in einer zugeschnittenen Live-Demo mit Ihren Prioritäten."
         label={moduleContent.ctaLabel ?? "Demo anfragen"}
       />
     </>

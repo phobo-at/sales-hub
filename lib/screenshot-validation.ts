@@ -46,16 +46,16 @@ export function validateScreenshotManifest(
     const moduleId = item.module as string;
 
     if (!ALLOWED_SLOT_IDS.has(slotId)) {
-      throw new Error(`Manifest enthaelt unbekannten Screenshot-Slot: ${slotId}`);
+      throw new Error(`Manifest enthält unbekannten Screenshot-Slot: ${slotId}`);
     }
 
     if (seenManifestIds.has(slotId)) {
-      throw new Error(`Manifest enthaelt doppelten Screenshot-Slot: ${slotId}`);
+      throw new Error(`Manifest enthält doppelten Screenshot-Slot: ${slotId}`);
     }
     seenManifestIds.add(slotId);
 
     if (!ALLOWED_MODULE_IDS.has(moduleId)) {
-      throw new Error(`Manifest enthaelt unbekanntes Modul fuer ${slotId}: ${moduleId}`);
+      throw new Error(`Manifest enthält unbekanntes Modul für ${slotId}: ${moduleId}`);
     }
 
     if (moduleId === "task-room") {
@@ -70,24 +70,24 @@ export function validateScreenshotManifest(
 
     if (contractItem.module !== item.module) {
       throw new Error(
-        `Manifest-Modul fuer ${slotId} ist ${item.module}; erwartet ist ${contractItem.module}.`
+        `Manifest-Modul für ${slotId} ist ${item.module}; erwartet ist ${contractItem.module}.`
       );
     }
 
     if (!item.route.startsWith("/")) {
-      throw new Error(`Manifest-Route fuer ${slotId} muss mit '/' beginnen.`);
+      throw new Error(`Manifest-Route für ${slotId} muss mit '/' beginnen.`);
     }
 
     if (!ALLOWED_VIEWPORTS.has(item.viewport)) {
-      throw new Error(`Manifest-Viewport fuer ${slotId} ist ungueltig: ${item.viewport}.`);
+      throw new Error(`Manifest-Viewport für ${slotId} ist ungültig: ${item.viewport}.`);
     }
 
     if (item.waitFor.trim().length === 0) {
-      throw new Error(`Manifest-waitFor fuer ${slotId} darf nicht leer sein.`);
+      throw new Error(`Manifest-waitFor für ${slotId} darf nicht leer sein.`);
     }
 
     if (!item.output.startsWith("/assets/screenshots/")) {
-      throw new Error(`Manifest-output fuer ${slotId} ist ungueltig: ${item.output}`);
+      throw new Error(`Manifest-output für ${slotId} ist ungültig: ${item.output}`);
     }
 
     if (!contractItem.assetPath) {
@@ -96,7 +96,7 @@ export function validateScreenshotManifest(
 
     if (contractItem.assetPath !== item.output) {
       throw new Error(
-        `Manifest-output fuer ${slotId} muss exakt dem Contract-assetPath entsprechen (${contractItem.assetPath}).`
+        `Manifest-output für ${slotId} muss exakt dem Contract-assetPath entsprechen (${contractItem.assetPath}).`
       );
     }
   }
@@ -106,7 +106,7 @@ export function validateScreenshotContract(
   contract: readonly ScreenshotContractItem[] = SCREENSHOT_CONTRACT
 ): void {
   if (contract.length !== SCREENSHOT_SLOT_IDS.length) {
-    throw new Error(`Screenshot-Contract muss exakt ${SCREENSHOT_SLOT_IDS.length} Eintraege haben.`);
+    throw new Error(`Screenshot-Contract muss exakt ${SCREENSHOT_SLOT_IDS.length} Einträge haben.`);
   }
 
   const seenContract = new Set<string>();
@@ -136,7 +136,7 @@ export function validateScreenshotContract(
     const purpose = item.purpose as string;
 
     if (!ALLOWED_PURPOSES.has(purpose)) {
-      throw new Error(`Unbekannter Screenshot-Purpose fuer Slot ${slotId}: ${purpose}`);
+      throw new Error(`Unbekannter Screenshot-Purpose für Slot ${slotId}: ${purpose}`);
     }
 
     if (item.purpose !== REQUIRED_PURPOSE_BY_SLOT[item.id]) {
@@ -146,11 +146,11 @@ export function validateScreenshotContract(
     }
 
     if (item.assetPath !== null && typeof item.assetPath !== "string") {
-      throw new Error(`Slot ${slotId} hat ungueltigen assetPath-Typ.`);
+      throw new Error(`Slot ${slotId} hat ungültigen assetPath-Typ.`);
     }
 
     if (typeof item.assetPath === "string" && !item.assetPath.startsWith("/assets/screenshots/")) {
-      throw new Error(`Slot ${slotId} hat ungueltigen assetPath: ${item.assetPath}`);
+      throw new Error(`Slot ${slotId} hat ungültigen assetPath: ${item.assetPath}`);
     }
   }
 
@@ -194,11 +194,11 @@ export function validateScreenshotContractAndMapping(
     const slotId = captureMapping.slotId as string;
 
     if (!ALLOWED_SLOT_IDS.has(slotId)) {
-      throw new Error(`Capture-Mapping enthaelt unbekannten Slot: ${slotId}`);
+      throw new Error(`Capture-Mapping enthält unbekannten Slot: ${slotId}`);
     }
 
     if (seenMappings.has(slotId)) {
-      throw new Error(`Doppeltes Capture-Mapping fuer Slot: ${slotId}`);
+      throw new Error(`Doppeltes Capture-Mapping für Slot: ${slotId}`);
     }
 
     seenMappings.add(slotId);
@@ -206,7 +206,7 @@ export function validateScreenshotContractAndMapping(
     if (captureMapping.todo) {
       if (manifestById[captureMapping.slotId]) {
         throw new Error(
-          `Capture-Mapping fuer ${slotId} darf kein todo sein, da ein Manifest-Eintrag existiert.`
+          `Capture-Mapping für ${slotId} darf kein todo sein, da ein Manifest-Eintrag existiert.`
         );
       }
 
@@ -216,7 +216,7 @@ export function validateScreenshotContractAndMapping(
 
     if (!captureMapping.path || !captureMapping.readySelector) {
       throw new Error(
-        `Capture-Mapping fuer ${slotId} braucht path und readySelector oder ein todo.`
+        `Capture-Mapping für ${slotId} braucht path und readySelector oder ein todo.`
       );
     }
 
@@ -224,19 +224,19 @@ export function validateScreenshotContractAndMapping(
 
     if (!manifestItem) {
       throw new Error(
-        `Capture-Mapping fuer ${slotId} ist konfiguriert, aber nicht im Screenshot-Manifest enthalten.`
+        `Capture-Mapping für ${slotId} ist konfiguriert, aber nicht im Screenshot-Manifest enthalten.`
       );
     }
 
     if (captureMapping.path !== manifestItem.route) {
       throw new Error(
-        `Capture-Mapping fuer ${slotId} hat path=${captureMapping.path}; erwartet ist ${manifestItem.route}.`
+        `Capture-Mapping für ${slotId} hat path=${captureMapping.path}; erwartet ist ${manifestItem.route}.`
       );
     }
 
     if (captureMapping.readySelector !== manifestItem.waitFor) {
       throw new Error(
-        `Capture-Mapping fuer ${slotId} hat readySelector=${captureMapping.readySelector}; erwartet ist ${manifestItem.waitFor}.`
+        `Capture-Mapping für ${slotId} hat readySelector=${captureMapping.readySelector}; erwartet ist ${manifestItem.waitFor}.`
       );
     }
 
@@ -245,7 +245,7 @@ export function validateScreenshotContractAndMapping(
 
   for (const slotId of SCREENSHOT_SLOT_IDS) {
     if (!seenMappings.has(slotId)) {
-      throw new Error(`Capture-Mapping fehlt fuer Slot: ${slotId}`);
+      throw new Error(`Capture-Mapping fehlt für Slot: ${slotId}`);
     }
   }
 

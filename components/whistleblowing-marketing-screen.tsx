@@ -16,12 +16,12 @@ const INBOX_ROWS = [
     caseId: "WB-2026-0142",
     title: "Hinweis auf Interessenkonflikt im Einkauf",
     priority: "Mittel",
-    status: "Review laeuft",
+    status: "Review läuft",
     owner: "Legal"
   },
   {
     caseId: "WB-2026-0139",
-    title: "Unvollstaendige Dokumentation externer Zahlungen",
+    title: "Unvollständige Dokumentation externer Zahlungen",
     priority: "Mittel",
     status: "Nachweise angefordert",
     owner: "Finance Control"
@@ -36,17 +36,17 @@ const INBOX_ROWS = [
 ];
 
 const CASE_TIMELINE = [
-  "Hinweis ueber gesicherten Kanal eingegangen (08:12).",
+  "Hinweis über gesicherten Kanal eingegangen (08:12).",
   "Erstklassifizierung durch Triage-Team abgeschlossen (09:05).",
-  "Beteiligte Geschaeftseinheit informiert, Datenraum geoeffnet (09:42).",
+  "Beteiligte Geschäftseinheit informiert, Datenraum geöffnet (09:42).",
   "KI-Einordnung und Risiko-Hinweise bereitgestellt (10:03)."
 ];
 
 const SUMMARY_BULLETS = [
-  "Der Hinweis bezieht sich auf wiederholte Umgehungen des Vier-Augen-Prinzips in drei Freigabevorgaengen.",
-  "Dokumentierte Entscheidungen weichen in zwei Faellen von den hinterlegten Beschaffungsrichtlinien ab.",
-  "Risikofaktor: Erhoehte Reputations- und Kontrollrisiken bei externen Partnerbeziehungen.",
-  "Empfohlene naechste Schritte: Sofortige Stichprobenpruefung, Rollenabgleich und Management-Briefing."
+  "Der Hinweis bezieht sich auf wiederholte Umgehungen des Vier-Augen-Prinzips in drei Freigabevorgängen.",
+  "Dokumentierte Entscheidungen weichen in zwei Fällen von den hinterlegten Beschaffungsrichtlinien ab.",
+  "Risikofaktor: Erhöhte Reputations- und Kontrollrisiken bei externen Partnerbeziehungen.",
+  "Empfohlene nächste Schritte: Sofortige Stichprobenprüfung, Rollenabgleich und Management-Briefing."
 ];
 
 function renderVariantBody(variant: WhistleblowingMarketingScreenVariant): JSX.Element {
@@ -59,7 +59,7 @@ function renderVariantBody(variant: WhistleblowingMarketingScreenVariant): JSX.E
             <strong>27</strong>
           </article>
           <article className="wb-kpi">
-            <span>Hochprioritaet</span>
+            <span>Hochpriorität</span>
             <strong>6</strong>
           </article>
           <article className="wb-kpi">
@@ -69,13 +69,13 @@ function renderVariantBody(variant: WhistleblowingMarketingScreenVariant): JSX.E
         </div>
 
         <section className="wb-panel">
-          <h2>Inbox Uebersicht</h2>
+          <h2>Inbox Übersicht</h2>
           <table className="wb-table">
             <thead>
               <tr>
                 <th>Case</th>
                 <th>Hinweis</th>
-                <th>Prioritaet</th>
+                <th>Priorität</th>
                 <th>Status</th>
                 <th>Owner</th>
               </tr>
@@ -102,7 +102,7 @@ function renderVariantBody(variant: WhistleblowingMarketingScreenVariant): JSX.E
       <div className="wb-screen wb-screen--detail">
         <section className="wb-panel">
           <h2>Case WB-2026-0147</h2>
-          <p>Verdacht auf Umgehung der Freigabekette in mehreren Beschaffungsvorgaengen.</p>
+          <p>Verdacht auf Umgehung der Freigabekette in mehreren Beschaffungsvorgängen.</p>
           <ol className="wb-list">
             {CASE_TIMELINE.map((item) => (
               <li key={item}>{item}</li>
@@ -111,14 +111,14 @@ function renderVariantBody(variant: WhistleblowingMarketingScreenVariant): JSX.E
           <div className="wb-tags">
             <span>Owner: Compliance Office</span>
             <span>Status: In Bearbeitung</span>
-            <span>Naechster Review: Heute 15:30</span>
+            <span>Nächster Review: Heute 15:30</span>
           </div>
         </section>
 
         <aside className="wb-panel wb-panel--ai">
           <h2>KI-Einordnung</h2>
           <p>
-            Muster entspricht bekannten Konstellationen mit erhoehter Kontrollluecke in der
+            Muster entspricht bekannten Konstellationen mit erhöhter Kontrolllücke in der
             Genehmigungskette.
           </p>
           <div className="wb-score">
@@ -138,7 +138,7 @@ function renderVariantBody(variant: WhistleblowingMarketingScreenVariant): JSX.E
   return (
     <div className="wb-screen">
       <section className="wb-panel">
-        <h2>KI-Zusammenfassung fuer das Fallteam</h2>
+        <h2>KI-Zusammenfassung für das Fallteam</h2>
         <p>
           Die Zusammenfassung strukturiert Eingangshinweis, Verifikation und empfohlene
           Folgeschritte in einer belastbaren Entscheidungsgrundlage.
@@ -159,10 +159,10 @@ function renderVariantBody(variant: WhistleblowingMarketingScreenVariant): JSX.E
           </article>
           <article>
             <span>Dokumentationsgrad</span>
-            <strong>Vollstaendig</strong>
+            <strong>Vollständig</strong>
           </article>
           <article>
-            <span>Empfohlene Prioritaet</span>
+            <span>Empfohlene Priorität</span>
             <strong>Hoch</strong>
           </article>
         </div>

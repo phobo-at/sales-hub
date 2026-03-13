@@ -94,7 +94,7 @@ describe("screenshot contract", () => {
   it("fails when a whitelist slot is missing", () => {
     const invalid = cloneContract().slice(1);
 
-    expect(() => validateScreenshotContract(invalid)).toThrow(/muss exakt 17 Eintraege haben/);
+    expect(() => validateScreenshotContract(invalid)).toThrow(/muss exakt 17 Einträge haben/);
   });
 
   it("fails when an extra non-whitelisted slot appears", () => {
@@ -144,7 +144,7 @@ describe("screenshot contract", () => {
     };
 
     expect(() => validateScreenshotManifest(SCREENSHOT_CONTRACT, invalidManifest)).toThrow(
-      /Manifest enthaelt unbekannten Screenshot-Slot/
+      /Manifest enthält unbekannten Screenshot-Slot/
     );
   });
 
@@ -153,7 +153,7 @@ describe("screenshot contract", () => {
     invalidManifest[1] = { ...invalidManifest[1], id: invalidManifest[0].id };
 
     expect(() => validateScreenshotManifest(SCREENSHOT_CONTRACT, invalidManifest)).toThrow(
-      /Manifest enthaelt doppelten Screenshot-Slot/
+      /Manifest enthält doppelten Screenshot-Slot/
     );
   });
 

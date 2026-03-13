@@ -61,7 +61,7 @@ export default async function HomePage(): Promise<JSX.Element> {
           <AiAssistHighlight
             eyebrow="Platform AI layer"
             title=".LOUPE Olex als ruhige AI-Erweiterung der Plattform"
-            text="Im Hub wird Olex nicht als Widget inszeniert, sondern als eingebettete Assistenz fuer Richtlinienkontext, Fallaufbereitung und glaubwuerdige Sales-Differenzierung."
+            text="Im Hub wird Olex nicht als Widget inszeniert, sondern als eingebettete Assistenz für Richtlinienkontext, Fallaufbereitung und glaubwürdige Sales-Differenzierung."
           />
 
           <article className="surface-card home-hero__panel">
@@ -90,10 +90,10 @@ export default async function HomePage(): Promise<JSX.Element> {
       </section>
 
       <SectionBlock
-        title="Modulueberblick"
+        title="Modulüberblick"
         id="modules"
         eyebrow="Platform modules"
-        description="Sieben modulare Einstiege, gestaltet fuer ruhige Orientierung, klare Nutzenkommunikation und belastbare Demo-Gespraeche."
+        description="Sieben modulare Einstiege, gestaltet für ruhige Orientierung, klare Nutzenkommunikation und belastbare Demo-Gespräche."
       >
         <div className="grid grid--cards">
           {modules.map((module) => (
@@ -105,7 +105,7 @@ export default async function HomePage(): Promise<JSX.Element> {
       <SectionBlock
         title="Why .LOUPE"
         eyebrow="Sales narrative"
-        description="Die Plattform wirkt im Hub nicht wie ein Admin-Tool, sondern wie ein praesentierbares Enterprise-Produkt."
+        description="Die Plattform wirkt im Hub nicht wie ein Admin-Tool, sondern wie ein präsentierbares Enterprise-Produkt."
         variant="soft"
       >
         <div className="grid grid--cards">
@@ -122,7 +122,7 @@ export default async function HomePage(): Promise<JSX.Element> {
         title="Use Cases"
         id="use-cases"
         eyebrow="Cross-module stories"
-        description="Fokussierte End-to-End-Erzaehlungen, die konkrete Buyer-Fragen schneller beantworten als reine Feature-Listen."
+        description="Fokussierte End-to-End-Erzählungen, die konkrete Buyer-Fragen schneller beantworten als reine Feature-Listen."
       >
         <div className="grid grid--cards">
           {useCases.map((useCase) => (

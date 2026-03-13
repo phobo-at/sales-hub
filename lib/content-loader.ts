@@ -73,7 +73,7 @@ function parseMarkdownFile<T>(raw: string, schema: z.ZodSchema<T>, filePath: str
     const reason = result.error.issues
       .map((issue) => `${issue.path.join(".") || "root"}: ${issue.message}`)
       .join("; ");
-    throw new Error(`Ungueltiges Frontmatter in ${filePath}: ${reason}`);
+    throw new Error(`Ungültiges Frontmatter in ${filePath}: ${reason}`);
   }
 
   return result.data;
@@ -100,7 +100,7 @@ function assertModuleScreenshotsMatchContract(moduleContent: ModuleContent): voi
   for (const id of actual) {
     if (!expected.has(id)) {
       throw new Error(
-        `Modul ${moduleContent.slug} referenziert unzulaessigen Screenshot-Slot ${id}.`
+        `Modul ${moduleContent.slug} referenziert unzulässigen Screenshot-Slot ${id}.`
       );
     }
   }
@@ -189,11 +189,11 @@ export async function validateContent(): Promise<void> {
   const useCaseSlugs = new Set(useCases.map((item) => item.slug));
 
   if (moduleSlugs.size !== MODULE_IDS.length) {
-    throw new Error(`Es muessen genau ${MODULE_IDS.length} Module gepflegt sein.`);
+    throw new Error(`Es müssen genau ${MODULE_IDS.length} Module gepflegt sein.`);
   }
 
   if (useCaseSlugs.size !== USE_CASE_SLUGS.length) {
-    throw new Error(`Es muessen genau ${USE_CASE_SLUGS.length} Use Cases gepflegt sein.`);
+    throw new Error(`Es müssen genau ${USE_CASE_SLUGS.length} Use Cases gepflegt sein.`);
   }
 
   await getHomeContent();

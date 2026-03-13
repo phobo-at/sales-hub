@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { OlexBadge } from "@/components/olex-badge";
 
@@ -46,7 +47,16 @@ export function SiteHeader({ ctaHref }: SiteHeaderProps): JSX.Element {
       <div className="site-header__inner">
         <div className="site-header__top">
           <Link href="/" className="site-header__brand" aria-label=".LOUPE Demo & Sales Hub">
-            <span className="site-header__brand-mark">.LOUPE</span>
+            <span className="site-header__brand-mark" aria-hidden="true">
+              <Image
+                src="/assets/brand/loupe-logo-wo-tagline.svg"
+                alt=""
+                width={142}
+                height={54}
+                className="site-header__brand-logo"
+                priority
+              />
+            </span>
             <span className="site-header__brand-copy">
               <strong>Demo & Sales Hub</strong>
               <small>Enterprise compliance stories, demo-ready surfaces.</small>

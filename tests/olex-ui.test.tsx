@@ -13,8 +13,15 @@ describe("Olex UI primitives", () => {
   it("renders Whistleblowing Olex content from the internal config", () => {
     const html = renderToStaticMarkup(<ModuleOlexSection moduleId="whistleblowing" />);
 
-    expect(html).toContain("AI-gestuetzte Fallaufbereitung fuer schnellere Erstbewertung");
+    expect(html).toContain("AI-gestützte Fallaufbereitung für schnellere Erstbewertung");
     expect(html).toContain(".LOUPE Olex");
+  });
+
+  it("renders Integrity Check Olex content from the internal config", () => {
+    const html = renderToStaticMarkup(<ModuleOlexSection moduleId="integrity-check" />);
+
+    expect(html).toContain("AI-gestützte Integritätsprüfung mit klarer Entscheidungslogik");
+    expect(html).toContain("Risk-aware integrity AI");
   });
 
   it("renders nothing for modules without Olex integration", () => {

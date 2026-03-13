@@ -1,22 +1,22 @@
 ---
 slug: "integrity-check"
 title: "Integrity Check"
-subtitle: "Anfragen regelbasiert pruefen und dokumentieren"
-shortDescription: "Integrity Check digitalisiert Integritaetspruefungen vom Antrag bis zur nachvollziehbaren Entscheidung."
-problem: "Ad-hoc-Pruefungen ohne einheitlichen Prozess erzeugen Inkonsistenzen und spaete Eskalationen."
+subtitle: "Anfragen regelbasiert prüfen und dokumentieren"
+shortDescription: "Integrity Check digitalisiert Integritätsprüfungen vom Antrag bis zur nachvollziehbaren Entscheidung mit .LOUPE Olex-Unterstützung."
+problem: "Ad-hoc-Prüfungen ohne einheitlichen Prozess erzeugen Inkonsistenzen und späte Eskalationen."
 benefits:
-  - "Standardisierter Intake fuer Integritaetsanfragen."
-  - "Regelbasierte Frageboegen fuer konsistente Bewertung."
-  - "Lueckenlose Dokumentation jeder Entscheidung."
+  - "Standardisierter Intake für Integritätsanfragen."
+  - "Regelbasierte Fragebögen und .LOUPE Olex-Hinweise für konsistente Bewertung."
+  - "Lückenlose Dokumentation jeder Entscheidung."
 storySteps:
   - "Anfragen werden strukturiert gestellt und klassifiziert."
-  - "Regelsets steuern notwendige Pruefschritte."
-  - "Frageboegen sichern konsistente Datenerhebung."
+  - "Regelsets und .LOUPE Olex steuern notwendige Prüfschritte."
+  - "Fragebögen sichern konsistente Datenerhebung."
   - "Ergebnisse werden transparent dokumentiert und freigegeben."
 features:
   - "Kategorienbasierter Einstieg"
   - "Anfrageformular mit Pflichtfeldern"
-  - "Regelgeleiteter Questionnaire"
+  - ".LOUPE Olex-unterstützter Questionnaire"
 proofPoints:
   - "Entscheidungen sind jederzeit nachvollziehbar belegbar."
   - "Teams arbeiten mit einem gemeinsamen, auditierbaren Standard."

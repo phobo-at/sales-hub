@@ -11,7 +11,7 @@ export interface CaptureMappingItem {
 }
 
 const TODO_NOTE =
-  "Produkt-Route und stabiler Selector muessen mit der .LOUPE-Produktoberflaeche verbunden werden.";
+  "Produkt-Route und stabiler Selector müssen mit der .LOUPE-Produktoberfläche verbunden werden.";
 
 const CANVAS_SELECTOR = '[data-testid="screen-canvas"]';
 

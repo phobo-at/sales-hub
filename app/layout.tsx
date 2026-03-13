@@ -6,7 +6,7 @@ import { getPrimaryCtaUrl } from "@/lib/env";
 export const metadata: Metadata = {
   title: ".LOUPE Demo- und Sales-Hub",
   description:
-    "Sales-fokussierter, wartungsarmer Hub fuer .LOUPE mit robustem Screenshot-Contract und Print-Ansichten."
+    "Sales-fokussierter, wartungsarmer Hub für .LOUPE mit robustem Screenshot-Contract und Print-Ansichten."
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }): JSX.Element {

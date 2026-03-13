@@ -1,6 +1,6 @@
 # .LOUPE Demo- und Sales-Hub
 
-Web-first Demo- und Sales-Hub fuer `.LOUPE`, gebaut fuer wartungsarmen Betrieb mit robustem Screenshot-Contract, stabilen Placeholdern und Print-/PDF-faehigen Ansichten.
+Web-first Demo- und Sales-Hub für `.LOUPE`, gebaut für wartungsarmen Betrieb mit robustem Screenshot-Contract, stabilen Placeholdern und Print-/PDF-fähigen Ansichten.
 
 ## Architektur
 
@@ -8,14 +8,14 @@ Web-first Demo- und Sales-Hub fuer `.LOUPE`, gebaut fuer wartungsarmen Betrieb m
 - Content im Repo (`content/**/*.md` mit YAML-Frontmatter)
 - Zentrale Screenshot-Quelle: `content/screenshot-contract.ts`
 - Technisches Capture-Manifest: `content/screenshot-manifest.ts`
-- Robuste Screenshot-Komponente mit Dateiexistenz-Pruefung
-- Playwright-Capture-Pipeline mit manifest-basierter Slot-Steuerung
+- Robuste Screenshot-Komponente mit Dateiexistenz-Prüfung
+- Playwright-Capture-Pipeline mit manifest-basierter Slot-Steürung
 
 ## Voraussetzungen
 
 - Node.js 20+
 - npm 9+
-- Fuer Capture einmalig: `npx playwright install chromium`
+- Für Capture einmalig: `npx playwright install chromium`
 
 ## Setup
 
@@ -32,13 +32,13 @@ App lokal: `http://localhost:3000`
 
 | Variable | Zweck | Pflicht |
 |---|---|---|
-| `LOUPE_CTA_URL` | Primaerer CTA-Link (Fallback: `/kontakt`) | Nein |
-| `SCREENSHOT_BASE_URL` | Basis-URL fuer Playwright-Capture (bevorzugt) | Ja, fuer Capture |
+| `LOUPE_CTA_URL` | Primärer CTA-Link (Fallback: `/kontakt`) | Nein |
+| `SCREENSHOT_BASE_URL` | Basis-URL für Playwright-Capture (bevorzugt) | Ja, für Capture |
 | `SCREENSHOT_AUTH_USER` | Optionaler Auth-User (HTTP Basic) | Nein |
 | `SCREENSHOT_AUTH_PASSWORD` | Optionales Auth-Passwort (HTTP Basic) | Nein |
 | `SCREENSHOT_STORAGE_STATE_PATH` | Optionaler Pfad zur Playwright-`storageState`-Datei | Nein |
-| `LOUPE_CAPTURE_BASE_URL` | Legacy-Fallback fuer `SCREENSHOT_BASE_URL` | Nein |
-| `LOUPE_CAPTURE_STORAGE_STATE_PATH` | Legacy-Fallback fuer `SCREENSHOT_STORAGE_STATE_PATH` | Nein |
+| `LOUPE_CAPTURE_BASE_URL` | Legacy-Fallback für `SCREENSHOT_BASE_URL` | Nein |
+| `LOUPE_CAPTURE_STORAGE_STATE_PATH` | Legacy-Fallback für `SCREENSHOT_STORAGE_STATE_PATH` | Nein |
 
 Beispiel `.env.local`:
 
@@ -89,19 +89,19 @@ Die drei Pilot-Routen:
 
 ## Screenshot-Contract und Placeholder-Logik
 
-- Der Contract enthaelt **exakt 17 freigegebene Slots** (keine Erweiterungen).
-- Das Manifest enthaelt im Pilot nur die drei Whistleblowing-Slots und darf keine fremden IDs haben.
+- Der Contract enthält **exakt 17 freigegebene Slots** (keine Erweiterungen).
+- Das Manifest enthält im Pilot nur die drei Whistleblowing-Slots und darf keine fremden IDs haben.
 - Mapping und Validatoren bleiben 1:1 auf den 17er Slot-Katalog ausgerichtet.
 - `Task Room` hat in v1 bewusst **keinen** Screenshot-Slot.
 - `SalesScreenshot` rendert nur reale Assets; sonst neutralen Placeholder mit Slot-ID, Titel und Status.
-- Fehlende Assets fuehren nicht zu gebrochenen Bildpfaden und nicht zu Build-Fehlern.
+- Fehlende Assets führen nicht zu gebrochenen Bildpfaden und nicht zu Build-Fehlern.
 - Verbindliche Regeln und Guardrails: `docs/screenshots.md`.
 
 ## Print-/PDF-Ansichten
 
 - Module: `/print/module/[slug]`
 - Use Cases: `/print/use-cases/[slug]`
-- Print-CSS sorgt fuer stabile Karten, Placeholder und Layout bei Browser-Export nach PDF.
+- Print-CSS sorgt für stabile Karten, Placeholder und Layout bei Browser-Export nach PDF.
 
 ## Railway Deployment
 
@@ -114,10 +114,10 @@ Empfohlene Railway-Konfiguration:
 
 Die App bleibt stateless und nutzt keine Railway-spezifische Runtime-Logik.
 
-## AWS-Faehigkeit
+## AWS-Fähigkeit
 
-- Keine tief eingebetteten Railway-Abhaengigkeiten
-- Konfiguration rein ueber ENV
+- Keine tief eingebetteten Railway-Abhängigkeiten
+- Konfiguration rein über ENV
 - Build/Start kompatibel mit containerisiertem oder managed Node-Deployment
 
 ## Repo-Struktur

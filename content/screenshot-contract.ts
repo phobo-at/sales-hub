@@ -47,19 +47,19 @@ const SCREENSHOT_CONTRACT_META_BY_ID = {
     module: "whistleblowing",
     title: "Whistleblowing Inbox",
     purpose: "hero",
-    caption: "Zentraler Eingangskanal fuer eingehende Hinweise.",
+    caption: "Zentraler Eingangskanal für eingehende Hinweise.",
     status: "missing",
     assetPath: "/assets/screenshots/whistleblowing-inbox.png",
-    sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
+    sourceNote: "Offizieller v1-Slot. Asset wird über Capture-Pipeline erzeugt."
   },
   "whistleblowing-case-detail-ai": {
     module: "whistleblowing",
     title: "Whistleblowing Case Detail mit KI",
     purpose: "proof",
-    caption: "Strukturierte Fallansicht mit KI-unterstuetzter Aufbereitung.",
+    caption: "Strukturierte Fallansicht mit KI-unterstützter Aufbereitung.",
     status: "missing",
     assetPath: "/assets/screenshots/whistleblowing-case-detail-ai.png",
-    sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
+    sourceNote: "Offizieller v1-Slot. Asset wird über Capture-Pipeline erzeugt."
   },
   "whistleblowing-summary-ai": {
     module: "whistleblowing",
@@ -68,7 +68,7 @@ const SCREENSHOT_CONTRACT_META_BY_ID = {
     caption: "KI-generierte Zusammenfassungen beschleunigen die Fallarbeit.",
     status: "missing",
     assetPath: "/assets/screenshots/whistleblowing-summary-ai.png",
-    sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
+    sourceNote: "Offizieller v1-Slot. Asset wird über Capture-Pipeline erzeugt."
   },
   "risk-overview-visualization": {
     module: "risk",
@@ -77,16 +77,16 @@ const SCREENSHOT_CONTRACT_META_BY_ID = {
     caption: "Risikofelder werden auf einen Blick priorisierbar visualisiert.",
     status: "missing",
     assetPath: "/assets/screenshots/risk-overview-visualization.png",
-    sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
+    sourceNote: "Offizieller v1-Slot. Asset wird über Capture-Pipeline erzeugt."
   },
   "risk-register-measures": {
     module: "risk",
-    title: "Risk Register und Massnahmen",
+    title: "Risk Register und Maßnahmen",
     purpose: "proof",
-    caption: "Massnahmen koennen direkt aus dem Register abgeleitet und verfolgt werden.",
+    caption: "Maßnahmen können direkt aus dem Register abgeleitet und verfolgt werden.",
     status: "missing",
     assetPath: "/assets/screenshots/risk-register-measures.png",
-    sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
+    sourceNote: "Offizieller v1-Slot. Asset wird über Capture-Pipeline erzeugt."
   },
   "risk-assessment-questionnaire": {
     module: "risk",
@@ -95,34 +95,34 @@ const SCREENSHOT_CONTRACT_META_BY_ID = {
     caption: "Standardisierte Bewertungen sichern Vergleichbarkeit und Nachvollziehbarkeit.",
     status: "missing",
     assetPath: "/assets/screenshots/risk-assessment-questionnaire.png",
-    sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
+    sourceNote: "Offizieller v1-Slot. Asset wird über Capture-Pipeline erzeugt."
   },
   "integrity-check-home-categories": {
     module: "integrity-check",
     title: "Integrity Check Kategorien",
     purpose: "hero",
-    caption: "Klar strukturierter Einstieg fuer Integritaetspruefungen.",
+    caption: "Klar strukturierter Einstieg für Integritätsprüfungen.",
     status: "missing",
     assetPath: "/assets/screenshots/integrity-check-home-categories.png",
-    sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
+    sourceNote: "Offizieller v1-Slot. Asset wird über Capture-Pipeline erzeugt."
   },
   "integrity-check-request-form": {
     module: "integrity-check",
     title: "Integrity Check Anfrageformular",
     purpose: "proof",
-    caption: "Anfragen werden standardisiert erfasst und direkt in den Prozess ueberfuehrt.",
+    caption: "Anfragen werden standardisiert erfasst und direkt in den Prozess überführt.",
     status: "missing",
     assetPath: "/assets/screenshots/integrity-check-request-form.png",
-    sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
+    sourceNote: "Offizieller v1-Slot. Asset wird über Capture-Pipeline erzeugt."
   },
   "integrity-check-questionnaire": {
     module: "integrity-check",
     title: "Integrity Check Fragebogen",
     purpose: "proof",
-    caption: "Regelbasierte Pruefungen sichern konsistente Entscheidungen.",
+    caption: "Regelbasierte Prüfungen sichern konsistente Entscheidungen.",
     status: "missing",
     assetPath: "/assets/screenshots/integrity-check-questionnaire.png",
-    sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
+    sourceNote: "Offizieller v1-Slot. Asset wird über Capture-Pipeline erzeugt."
   },
   "policy-navigator-overview": {
     module: "policy-navigator",
@@ -131,7 +131,7 @@ const SCREENSHOT_CONTRACT_META_BY_ID = {
     caption: "Richtlinien werden zentral bereitgestellt und leicht auffindbar gemacht.",
     status: "missing",
     assetPath: "/assets/screenshots/policy-navigator-overview.png",
-    sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
+    sourceNote: "Offizieller v1-Slot. Asset wird über Capture-Pipeline erzeugt."
   },
   "policy-navigator-olex-qa": {
     module: "policy-navigator",
@@ -140,34 +140,34 @@ const SCREENSHOT_CONTRACT_META_BY_ID = {
     caption: ".LOUPE Olex erleichtert mit kontextbezogenen Antworten das Verstehen komplexer Richtlinien.",
     status: "missing",
     assetPath: "/assets/screenshots/policy-navigator-olex-qa.png",
-    sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
+    sourceNote: "Offizieller v1-Slot. Asset wird über Capture-Pipeline erzeugt."
   },
   "policy-navigator-read-confirmation": {
     module: "policy-navigator",
-    title: "Policy Navigator Lesebestaetigung",
+    title: "Policy Navigator Lesebestätigung",
     purpose: "proof",
-    caption: "Bestaetigungen sind revisionssicher dokumentiert.",
+    caption: "Bestätigungen sind revisionssicher dokumentiert.",
     status: "missing",
     assetPath: "/assets/screenshots/policy-navigator-read-confirmation.png",
-    sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
+    sourceNote: "Offizieller v1-Slot. Asset wird über Capture-Pipeline erzeugt."
   },
   "dawn-raids-alert-portal": {
     module: "dawn-raids",
     title: "Dawn Raids Alarmportal",
     purpose: "hero",
-    caption: "Im Ernstfall kann sofort eine zentrale Alarmkette ausgeloest werden.",
+    caption: "Im Ernstfall kann sofort eine zentrale Alarmkette ausgelöst werden.",
     status: "missing",
     assetPath: "/assets/screenshots/dawn-raids-alert-portal.png",
-    sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
+    sourceNote: "Offizieller v1-Slot. Asset wird über Capture-Pipeline erzeugt."
   },
   "dawn-raids-incident-documentation": {
     module: "dawn-raids",
     title: "Dawn Raids Einsatzdokumentation",
     purpose: "proof",
-    caption: "Massnahmen und Ereignisse werden strukturiert und zentral dokumentiert.",
+    caption: "Maßnahmen und Ereignisse werden strukturiert und zentral dokumentiert.",
     status: "missing",
     assetPath: "/assets/screenshots/dawn-raids-incident-documentation.png",
-    sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
+    sourceNote: "Offizieller v1-Slot. Asset wird über Capture-Pipeline erzeugt."
   },
   "business-partner-overview-risk": {
     module: "business-partner",
@@ -176,16 +176,16 @@ const SCREENSHOT_CONTRACT_META_BY_ID = {
     caption: "Lieferketten- und Partner-Risiken sind zentral priorisierbar.",
     status: "missing",
     assetPath: "/assets/screenshots/business-partner-overview-risk.png",
-    sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
+    sourceNote: "Offizieller v1-Slot. Asset wird über Capture-Pipeline erzeugt."
   },
   "business-partner-profile-detail": {
     module: "business-partner",
     title: "Business Partner Profil-Detail",
     purpose: "proof",
-    caption: "Detailprofile buendeln relevante Risiko- und Kontextinformationen.",
+    caption: "Detailprofile bündeln relevante Risiko- und Kontextinformationen.",
     status: "missing",
     assetPath: "/assets/screenshots/business-partner-profile-detail.png",
-    sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
+    sourceNote: "Offizieller v1-Slot. Asset wird über Capture-Pipeline erzeugt."
   },
   "business-partner-questionnaire": {
     module: "business-partner",
@@ -194,7 +194,7 @@ const SCREENSHOT_CONTRACT_META_BY_ID = {
     caption: "Assessments schaffen Vergleichbarkeit und belastbare Entscheidungsgrundlagen.",
     status: "missing",
     assetPath: "/assets/screenshots/business-partner-questionnaire.png",
-    sourceNote: "Offizieller v1-Slot. Asset wird ueber Capture-Pipeline erzeugt."
+    sourceNote: "Offizieller v1-Slot. Asset wird über Capture-Pipeline erzeugt."
   }
 } as const satisfies ScreenshotContractMetaById;
 

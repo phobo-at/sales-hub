@@ -86,7 +86,7 @@ export default async function UseCasePage({ params }: UseCasePageProps): Promise
       <SectionBlock
         title="Beteiligte Module"
         eyebrow="Platform coverage"
-        description="Der Use Case verbindet konkrete Plattform-Bausteine zu einer durchgaengigen Enterprise-Story."
+        description="Der Use Case verbindet konkrete Plattform-Bausteine zu einer durchgängigen Enterprise-Story."
         variant="soft"
       >
         <div className="tag-list">
@@ -101,7 +101,7 @@ export default async function UseCasePage({ params }: UseCasePageProps): Promise
       <SectionBlock
         title="Outcomes und Ablauf"
         eyebrow="Journey"
-        description="Die Wirkung wird mit klaren Resultaten und einem nachvollziehbaren Schritt-fuer-Schritt-Ablauf beschrieben."
+        description="Die Wirkung wird mit klaren Resultaten und einem nachvollziehbaren Schritt-für-Schritt-Ablauf beschrieben."
       >
         <div className="story-layout">
           <article className="surface-card surface-card--soft">
@@ -129,7 +129,7 @@ export default async function UseCasePage({ params }: UseCasePageProps): Promise
       <SectionBlock
         title="Print-Ansicht"
         eyebrow="Sales enablement"
-        description="Der Use Case laesst sich direkt in eine druckbare oder PDF-faehige Fassung ueberfuehren."
+        description="Der Use Case lässt sich direkt in eine druckbare oder PDF-fähige Fassung überführen."
         variant="soft"
       >
         <p className="section__actions">
@@ -140,8 +140,8 @@ export default async function UseCasePage({ params }: UseCasePageProps): Promise
       </SectionBlock>
 
       <CtaSection
-        title="Demo fuer diesen Use Case"
-        text="Wir zeigen den End-to-End-Ablauf mit Rollenbild und Einfuehrungsfahrplan."
+        title="Demo für diesen Use Case"
+        text="Wir zeigen den End-to-End-Ablauf mit Rollenbild und Einführungsfahrplan."
         label={useCase.ctaLabel ?? "Use-Case-Demo anfragen"}
       />
     </>

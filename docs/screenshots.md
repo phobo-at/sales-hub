@@ -2,13 +2,13 @@
 
 ## Ziel
 
-Der Screenshot-Contract ist redaktionell fixiert. Der Hub darf nur mit dem freigegebenen v1-Katalog arbeiten. Erweiterungen ausserhalb dieses Katalogs sind nicht erlaubt.
+Der Screenshot-Contract ist redaktionell fixiert. Der Hub darf nur mit dem freigegebenen v1-Katalog arbeiten. Erweiterungen außerhalb dieses Katalogs sind nicht erlaubt.
 
 ## Zentrale Quelle
 
 - Runtime Source of Truth: `content/screenshot-contract.ts`
 - Technische Capture-Konfiguration: `content/screenshot-manifest.ts`
-- Ableitung fuer 1:1-Slot-Abdeckung: `content/screenshot-capture-mapping.ts`
+- Ableitung für 1:1-Slot-Abdeckung: `content/screenshot-capture-mapping.ts`
 - Der Katalog umfasst exakt 17 Slots.
 - `task-room` hat in v1 bewusst keinen Screenshot-Slot.
 
@@ -45,7 +45,7 @@ Der Screenshot-Contract ist redaktionell fixiert. Der Hub darf nur mit dem freig
 
 ## Typsicheres Modell
 
-Jeder Slot ist als `ScreenshotContractItem` typisiert und enthaelt mindestens:
+Jeder Slot ist als `ScreenshotContractItem` typisiert und enthält mindestens:
 
 - `id`
 - `module`
@@ -63,10 +63,10 @@ Hinweis zu `assetPath`:
 ## Contract <-> Manifest <-> Mapping
 
 - Der Contract definiert die erlaubten Slot-IDs und finalen Asset-Pfade.
-- Das Manifest definiert nur capture-faehige Slots mit technischen Angaben:
+- Das Manifest definiert nur capture-fähige Slots mit technischen Angaben:
   - `id`, `module`, `route`, `viewport`, `waitFor`, `output`
   - optional `requiresAuth`, `tags`
-- Das Mapping bleibt 1:1 ueber alle 17 Slots und wird aus Contract + Manifest abgeleitet:
+- Das Mapping bleibt 1:1 über alle 17 Slots und wird aus Contract + Manifest abgeleitet:
   - Manifest-Slots sind konfiguriert (`path`, `readySelector`, `clipSelector`).
   - Nicht konfigurierte Slots bleiben explizit `todo`.
 
@@ -98,7 +98,7 @@ Alle Capture-Routen liefern:
 
 - stabilen Ready Marker: `data-testid="screen-ready"`
 - stabilen Canvas-Container: `data-testid="screen-canvas"`
-- kuratierte Demo-Daten ohne Produktionsabhaengigkeit
+- kuratierte Demo-Daten ohne Produktionsabhängigkeit
 
 ## Helper-API
 
@@ -110,8 +110,8 @@ Die zentrale Helper-API liegt in `lib/screenshot-helpers.ts`:
 - `getDifferentiatorScreenshot(module)`
 
 Verhalten:
-- Fuer `task-room` liefern die Helper immer `[]` bzw. `null`.
-- `hasScreenshotAsset(assetPath)` ist null-/undefined-sicher und gibt bei ungueltigem oder fehlendem Asset `false` zurueck.
+- Für `task-room` liefern die Helper immer `[]` bzw. `null`.
+- `hasScreenshotAsset(assetPath)` ist null-/undefined-sicher und gibt bei ungültigem oder fehlendem Asset `false` zurück.
 
 ## Validierungsregeln
 
@@ -120,23 +120,23 @@ Verhalten:
 - keine duplicate Slot-ID
 - kein unbekanntes Modul
 - kein unbekannter Purpose
-- kein Slot fuer `task-room`
+- kein Slot für `task-room`
 - jedes Modul mit Screenshots hat genau einen `hero`
-- keine zusaetzlichen Slots ausserhalb der Whitelist
+- keine zusätzlichen Slots außerhalb der Whitelist
 - keine fehlenden Slots aus der Whitelist
-- Manifest enthaelt keine unbekannten oder doppelten IDs
+- Manifest enthält keine unbekannten oder doppelten IDs
 - Manifest-`module` muss zum Contract passen
 - Manifest-`output` muss exakt dem Contract-`assetPath` entsprechen
 - Capture-Mapping hat pro Slot genau einen Eintrag
-- Capture-Mapping enthaelt keine Fremd-Slots
-- konfigurierte Mapping-Eintraege muessen exakt Manifest-Werte nutzen
+- Capture-Mapping enthält keine Fremd-Slots
+- konfigurierte Mapping-Einträge müssen exakt Manifest-Werte nutzen
 
 ## Placeholder-Verhalten
 
 `components/SalesScreenshot.tsx` rendert einen Placeholder statt eines defekten Bilds, wenn:
 
 - `assetPath` `null` ist
-- der Pfad ungueltig ist
+- der Pfad ungültig ist
 - die Datei nicht existiert
 
 Damit bleibt die UI stabil und crasht nicht bei fehlenden Assets.
@@ -145,7 +145,7 @@ Damit bleibt die UI stabil und crasht nicht bei fehlenden Assets.
 
 ENV (bevorzugt):
 
-- `SCREENSHOT_BASE_URL` (Pflicht fuer Capture)
+- `SCREENSHOT_BASE_URL` (Pflicht für Capture)
 - optional `SCREENSHOT_AUTH_USER` + `SCREENSHOT_AUTH_PASSWORD`
 - optional `SCREENSHOT_STORAGE_STATE_PATH`
 
@@ -172,5 +172,5 @@ Output:
 
 - keine Erweiterung der Slot-Liste
 - keine Auto-Discovery von Bildern aus Ordnern
-- kein stilles Hinzufuegen weiterer Slots
-- keine impliziten Defaults, die den Contract verwaessern
+- kein stilles Hinzufügen weiterer Slots
+- keine impliziten Defaults, die den Contract verwässern

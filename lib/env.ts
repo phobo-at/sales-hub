@@ -56,7 +56,7 @@ export function getScreenshotAuthCredentials(): ScreenshotAuthCredentials | null
 
   if (!username || !password) {
     throw new Error(
-      "SCREENSHOT_AUTH_USER und SCREENSHOT_AUTH_PASSWORD muessen gemeinsam gesetzt werden."
+      "SCREENSHOT_AUTH_USER und SCREENSHOT_AUTH_PASSWORD müssen gemeinsam gesetzt werden."
     );
   }
 

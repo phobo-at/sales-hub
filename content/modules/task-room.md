@@ -1,25 +1,25 @@
 ---
 slug: "task-room"
 title: "Task Room"
-subtitle: "Massnahmen und Aufgaben uebergreifend orchestrieren"
-shortDescription: "Task Room ist der operative Arbeitsraum fuer Aufgabenpakete, Fristen und Verantwortlichkeiten."
-problem: "Massnahmenlisten in isolierten Tools verhindern klare Steuerung und Transparenz ueber Abhaengigkeiten."
+subtitle: "Maßnahmen und Aufgaben übergreifend orchestrieren"
+shortDescription: "Task Room ist der operative Arbeitsraum für Aufgabenpakete, Fristen und Verantwortlichkeiten."
+problem: "Maßnahmenlisten in isolierten Tools verhindern klare Steuerung und Transparenz über Abhängigkeiten."
 benefits:
-  - "Zentrale Aufgabensteuerung ueber Module hinweg."
+  - "Zentrale Aufgabensteuerung über Module hinweg."
   - "Klare Verantwortlichkeiten und Fristenlogik."
   - "Besseres Monitoring von Umsetzungsfortschritt."
 storySteps:
-  - "Massnahmen werden aus Modulen in den Arbeitsraum uebergeben."
+  - "Maßnahmen werden aus Modulen in den Arbeitsraum übergeben."
   - "Aufgaben werden Rollen zugeordnet und terminiert."
-  - "Status-Updates schaffen Transparenz fuer Stakeholder."
-  - "Abhaengigkeiten und Blocker werden frueh erkannt."
+  - "Status-Updates schaffen Transparenz für Stakeholder."
+  - "Abhängigkeiten und Blocker werden früh erkannt."
 features:
-  - "Zentraler Massnahmen-Backlog"
+  - "Zentraler Maßnahmen-Backlog"
   - "Fristen- und Verantwortungsmanagement"
   - "Status- und Eskalationssicht"
 proofPoints:
   - "Weniger Reibungsverluste zwischen Teams durch einheitliche Steuerung."
-  - "Bessere Nachvollziehbarkeit bei der Umsetzung kritischer Massnahmen."
+  - "Bessere Nachvollziehbarkeit bei der Umsetzung kritischer Maßnahmen."
 targetGroups:
   - "Compliance"
   - "Project Management"

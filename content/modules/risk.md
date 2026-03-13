@@ -1,25 +1,25 @@
 ---
 slug: "risk"
 title: "Risk"
-subtitle: "Risiken identifizieren, bewerten und Massnahmen steuern"
-shortDescription: "Risk schafft Transparenz ueber Risiken und verbindet Bewertung direkt mit konkreten Massnahmen."
-problem: "Risikolisten ohne einheitliche Bewertung und Nachverfolgung fuehren zu blinden Flecken und fehlender Steuerbarkeit."
+subtitle: "Risiken identifizieren, bewerten und Maßnahmen steuern"
+shortDescription: "Risk schafft Transparenz über Risiken und verbindet Bewertung direkt mit konkreten Maßnahmen."
+problem: "Risikolisten ohne einheitliche Bewertung und Nachverfolgung führen zu blinden Flecken und fehlender Steuerbarkeit."
 benefits:
-  - "Zentrale Sicht auf Risikoportfolio und Prioritaeten."
-  - "Konsistente Bewertung ueber standardisierte Frageboegen."
-  - "Direkte Ueberfuehrung in umsetzbare Massnahmen."
+  - "Zentrale Sicht auf Risikoportfolio und Prioritäten."
+  - "Konsistente Bewertung über standardisierte Fragebögen."
+  - "Direkte Überführung in umsetzbare Maßnahmen."
 storySteps:
   - "Risiken werden aus Fachbereichen systematisch erfasst."
-  - "Visualisierungen machen Prioritaeten und Cluster sichtbar."
-  - "Bewertungen erfolgen standardisiert ueber Frageboegen."
-  - "Massnahmen werden dokumentiert, terminiert und nachverfolgt."
+  - "Visualisierungen machen Prioritäten und Cluster sichtbar."
+  - "Bewertungen erfolgen standardisiert über Fragebögen."
+  - "Maßnahmen werden dokumentiert, terminiert und nachverfolgt."
 features:
-  - "Risikouebersicht mit Visualisierung"
-  - "Massnahmenregister mit Status-Tracking"
-  - "Assessment-Questionnaire fuer Vergleichbarkeit"
+  - "Risikoübersicht mit Visualisierung"
+  - "Maßnahmenregister mit Status-Tracking"
+  - "Assessment-Questionnaire für Vergleichbarkeit"
 proofPoints:
   - "Risikobewertungen sind revisionssicher und nachvollziehbar."
-  - "Massnahmen koennen auditfest von Bewertung bis Umsetzung verfolgt werden."
+  - "Maßnahmen können auditfest von Bewertung bis Umsetzung verfolgt werden."
 targetGroups:
   - "Compliance"
   - "Risk Management"
