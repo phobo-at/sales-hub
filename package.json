@@ -14,6 +14,7 @@
     "test:watch": "vitest",
     "content:validate": "tsx scripts/validate-content.ts",
     "screenshots:validate": "tsx scripts/validate-screenshots.ts",
+    "screenshots": "tsx scripts/capture-screenshots.ts",
     "screenshots:capture": "tsx scripts/capture-screenshots.ts"
   },
   "dependencies": {

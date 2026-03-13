@@ -25,7 +25,8 @@ Der Hub ersetzt statische, screenshot-lastige Praesentationen durch eine struktu
 - Placeholder zeigt Slot-ID, Status und Metadaten.
 
 5. Capture-Pipeline
-- `scripts/capture-screenshots.ts` liest Contract + Mapping.
+- `scripts/capture-screenshots.ts` liest Contract + Manifest.
+- Manifest liegt in `content/screenshot-manifest.ts`.
 - Mapping liegt in `content/screenshot-capture-mapping.ts`.
 - TODO-Eintraege sind erlaubt und werden explizit reportet.
 - Doppelte oder fehlende Slot-Mappings sind harte Fehler.
@@ -54,4 +55,4 @@ Der Hub ersetzt statische, screenshot-lastige Praesentationen durch eine struktu
 
 ## Noch offene Asset-Arbeit
 
-Die realen Produkt-Screens muessen fuer die 17 freigegebenen Slots erzeugt und in `public/assets/screenshots/` abgelegt werden. Bis dahin bleibt der Hub voll nutzbar durch Placeholder.
+Der Pilot fuer Whistleblowing (3 Slots) ist auf echte, automatisierbare Capture-Routen verdrahtet. Die restlichen freigegebenen Slots muessen schrittweise in das Manifest uebernommen und dann ueber die gleiche Pipeline erzeugt werden.

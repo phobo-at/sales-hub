@@ -9,8 +9,13 @@ import {
   type CaptureMappingItem
 } from "@/content/screenshot-capture-mapping";
 import {
+  SCREENSHOT_MANIFEST,
+  type ScreenshotManifestItem
+} from "@/content/screenshot-manifest";
+import {
   validateScreenshotContract,
-  validateScreenshotContractAndMapping
+  validateScreenshotContractAndMapping,
+  validateScreenshotManifest
 } from "@/lib/screenshot-validation";
 
 function cloneContract(): ScreenshotContractItem[] {
@@ -19,6 +24,10 @@ function cloneContract(): ScreenshotContractItem[] {
 
 function cloneMapping(): CaptureMappingItem[] {
   return SCREENSHOT_CAPTURE_MAPPING.map((item) => ({ ...item }));
+}
+
+function cloneManifest(): ScreenshotManifestItem[] {
+  return SCREENSHOT_MANIFEST.map((item) => ({ ...item }));
 }
 
 describe("screenshot contract", () => {
@@ -37,8 +46,8 @@ describe("screenshot contract", () => {
 
   it("validates canonical contract and mapping consistency", () => {
     const report = validateScreenshotContractAndMapping();
-    expect(report.todoCaptureSlots).toBe(17);
-    expect(report.configuredCaptureSlots).toBe(0);
+    expect(report.todoCaptureSlots).toBe(14);
+    expect(report.configuredCaptureSlots).toBe(3);
   });
 
   it("accepts null assetPath values", () => {
@@ -124,6 +133,51 @@ describe("screenshot contract", () => {
 
     expect(() => validateScreenshotContractAndMapping(SCREENSHOT_CONTRACT, invalidMapping)).toThrow(
       /Doppeltes Capture-Mapping/
+    );
+  });
+
+  it("fails on unknown manifest slots", () => {
+    const invalidManifest = cloneManifest();
+    invalidManifest[0] = {
+      ...invalidManifest[0],
+      id: "unknown-slot" as unknown as ScreenshotManifestItem["id"]
+    };
+
+    expect(() => validateScreenshotManifest(SCREENSHOT_CONTRACT, invalidManifest)).toThrow(
+      /Manifest enthaelt unbekannten Screenshot-Slot/
+    );
+  });
+
+  it("fails on duplicate manifest slots", () => {
+    const invalidManifest = cloneManifest();
+    invalidManifest[1] = { ...invalidManifest[1], id: invalidManifest[0].id };
+
+    expect(() => validateScreenshotManifest(SCREENSHOT_CONTRACT, invalidManifest)).toThrow(
+      /Manifest enthaelt doppelten Screenshot-Slot/
+    );
+  });
+
+  it("fails on output mismatch between manifest and contract", () => {
+    const invalidManifest = cloneManifest();
+    invalidManifest[0] = {
+      ...invalidManifest[0],
+      output: "/assets/screenshots/wrong-file.png"
+    };
+
+    expect(() => validateScreenshotManifest(SCREENSHOT_CONTRACT, invalidManifest)).toThrow(
+      /muss exakt dem Contract-assetPath entsprechen/
+    );
+  });
+
+  it("fails when manifest assigns a screenshot to task-room", () => {
+    const invalidManifest = cloneManifest();
+    invalidManifest[0] = {
+      ...invalidManifest[0],
+      module: "task-room" as unknown as ScreenshotManifestItem["module"]
+    };
+
+    expect(() => validateScreenshotManifest(SCREENSHOT_CONTRACT, invalidManifest)).toThrow(
+      /Task Room darf in v1 keinen Screenshot-Slot haben/
     );
   });
 });
