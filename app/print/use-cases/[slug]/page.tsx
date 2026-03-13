@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { ScreenshotGallery } from "@/components/screenshot-gallery";
-import { USE_CASE_SLUGS, type UseCaseSlug } from "@/lib/domain";
 import { getUseCaseContent } from "@/lib/content-loader";
+import { USE_CASE_SLUGS, parseUseCaseSlug, type UseCaseSlug } from "@/lib/domain";
 
 interface PrintUseCasePageProps {
   params: { slug: string };
@@ -12,12 +12,11 @@ export async function generateStaticParams(): Promise<Array<{ slug: UseCaseSlug 
 }
 
 export default async function PrintUseCasePage({ params }: PrintUseCasePageProps): Promise<JSX.Element> {
-  const slug = params.slug as UseCaseSlug;
-  const useCase = await getUseCaseContent(slug);
+  const slug = parseUseCaseSlug(params.slug);
+  if (!slug) notFound();
 
-  if (!useCase) {
-    notFound();
-  }
+  const useCase = await getUseCaseContent(slug);
+  if (!useCase) notFound();
 
   return (
     <article>

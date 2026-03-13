@@ -7,8 +7,8 @@ import { ModuleOlexSection } from "@/components/module-olex-section";
 import { OlexBadge } from "@/components/olex-badge";
 import { ScreenshotGallery } from "@/components/screenshot-gallery";
 import { SectionBlock } from "@/components/section-block";
-import { MODULE_IDS, type ModuleId } from "@/lib/domain";
 import { getModuleContent } from "@/lib/content-loader";
+import { MODULE_IDS, parseModuleId, type ModuleId } from "@/lib/domain";
 import { getOlexSignal } from "@/lib/olex";
 
 interface ModulePageProps {
@@ -20,12 +20,11 @@ export async function generateStaticParams(): Promise<Array<{ slug: ModuleId }>>
 }
 
 export default async function ModulePage({ params }: ModulePageProps): Promise<JSX.Element> {
-  const slug = params.slug as ModuleId;
-  const moduleContent = await getModuleContent(slug);
+  const slug = parseModuleId(params.slug);
+  if (!slug) notFound();
 
-  if (!moduleContent) {
-    notFound();
-  }
+  const moduleContent = await getModuleContent(slug);
+  if (!moduleContent) notFound();
 
   const olexSignal = getOlexSignal(moduleContent.slug);
 

@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { ScreenshotGallery } from "@/components/screenshot-gallery";
-import { MODULE_IDS, type ModuleId } from "@/lib/domain";
 import { getModuleContent } from "@/lib/content-loader";
+import { MODULE_IDS, parseModuleId, type ModuleId } from "@/lib/domain";
 
 interface PrintModulePageProps {
   params: { slug: string };
@@ -12,12 +12,11 @@ export async function generateStaticParams(): Promise<Array<{ slug: ModuleId }>>
 }
 
 export default async function PrintModulePage({ params }: PrintModulePageProps): Promise<JSX.Element> {
-  const slug = params.slug as ModuleId;
-  const moduleContent = await getModuleContent(slug);
+  const slug = parseModuleId(params.slug);
+  if (!slug) notFound();
 
-  if (!moduleContent) {
-    notFound();
-  }
+  const moduleContent = await getModuleContent(slug);
+  if (!moduleContent) notFound();
 
   return (
     <article>

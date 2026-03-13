@@ -6,8 +6,8 @@ import { DetailHero } from "@/components/detail-hero";
 import { OlexBadge } from "@/components/olex-badge";
 import { ScreenshotGallery } from "@/components/screenshot-gallery";
 import { SectionBlock } from "@/components/section-block";
-import { USE_CASE_SLUGS, type UseCaseSlug } from "@/lib/domain";
 import { getAllModuleContent, getUseCaseContent } from "@/lib/content-loader";
+import { USE_CASE_SLUGS, parseUseCaseSlug, type UseCaseSlug } from "@/lib/domain";
 import { getOlexSignal } from "@/lib/olex";
 
 interface UseCasePageProps {
@@ -19,12 +19,11 @@ export async function generateStaticParams(): Promise<Array<{ slug: UseCaseSlug 
 }
 
 export default async function UseCasePage({ params }: UseCasePageProps): Promise<JSX.Element> {
-  const slug = params.slug as UseCaseSlug;
-  const [useCase, modules] = await Promise.all([getUseCaseContent(slug), getAllModuleContent()]);
+  const slug = parseUseCaseSlug(params.slug);
+  if (!slug) notFound();
 
-  if (!useCase) {
-    notFound();
-  }
+  const [useCase, modules] = await Promise.all([getUseCaseContent(slug), getAllModuleContent()]);
+  if (!useCase) notFound();
 
   const moduleMap = new Map(modules.map((module) => [module.slug, module.title]));
   const olexSignal = useCase.modules.map((moduleId) => getOlexSignal(moduleId)).find(Boolean) ?? null;
