@@ -86,7 +86,7 @@ export function SiteHeader({ ctaHref }: SiteHeaderProps): JSX.Element {
     <header className="site-header no-print">
       <div className="site-header__inner">
         <div className="site-header__masthead">
-          <Link href="/" className="site-header__brand" aria-label=".LOUPE Demo & Sales Hub">
+          <Link href="/" className="site-header__brand" aria-label=".LOUPE Enterprise Compliance – Zur Übersicht">
             <span className="site-header__brand-mark" aria-hidden="true">
               <Image
                 src="/assets/brand/loupe-logo-wo-tagline.svg"
