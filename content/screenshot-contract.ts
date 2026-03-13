@@ -48,7 +48,7 @@ const SCREENSHOT_CONTRACT_META_BY_ID = {
     title: "Whistleblowing Inbox",
     purpose: "hero",
     caption: "Zentraler Eingangskanal für eingehende Hinweise.",
-    status: "missing",
+    status: "available",
     assetPath: "/assets/screenshots/whistleblowing-inbox.png",
     sourceNote: "Offizieller v1-Slot. Asset wird über Capture-Pipeline erzeugt."
   },
@@ -57,7 +57,7 @@ const SCREENSHOT_CONTRACT_META_BY_ID = {
     title: "Whistleblowing Case Detail mit .LOUPE Olex",
     purpose: "proof",
     caption: "Strukturierte Fallansicht mit .LOUPE Olex-gestützter Aufbereitung.",
-    status: "missing",
+    status: "available",
     assetPath: "/assets/screenshots/whistleblowing-case-detail-ai.png",
     sourceNote: "Offizieller v1-Slot. Asset wird über Capture-Pipeline erzeugt."
   },
@@ -66,7 +66,7 @@ const SCREENSHOT_CONTRACT_META_BY_ID = {
     title: "Whistleblowing Zusammenfassung mit .LOUPE Olex",
     purpose: "differentiator",
     caption: ".LOUPE Olex-generierte Zusammenfassungen beschleunigen die Fallarbeit.",
-    status: "missing",
+    status: "available",
     assetPath: "/assets/screenshots/whistleblowing-summary-ai.png",
     sourceNote: "Offizieller v1-Slot. Asset wird über Capture-Pipeline erzeugt."
   },
