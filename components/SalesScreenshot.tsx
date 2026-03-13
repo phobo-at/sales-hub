@@ -6,6 +6,7 @@ import { isOlexScreenshotSlot } from "@/lib/olex";
 
 interface SalesScreenshotProps {
   screenshot: ScreenshotContractItem;
+  hasAsset?: boolean;
 }
 
 function statusBadgeClass(status: ScreenshotContractItem["status"]): string {
@@ -40,9 +41,12 @@ function statusLabel(status: ScreenshotContractItem["status"]): string {
   return "Erforderlich";
 }
 
-export async function SalesScreenshot({ screenshot }: SalesScreenshotProps): Promise<JSX.Element> {
+export async function SalesScreenshot({
+  screenshot,
+  hasAsset: hasAssetProp
+}: SalesScreenshotProps): Promise<JSX.Element> {
   const imagePath = typeof screenshot.assetPath === "string" ? screenshot.assetPath : null;
-  const hasAsset = await hasScreenshotAsset(imagePath);
+  const hasAsset = hasAssetProp ?? (await hasScreenshotAsset(imagePath));
   const displayStatus = hasAsset ? "available" : screenshot.status;
   const displayStatusLabel = statusLabel(displayStatus);
   const isOlexSurface = isOlexScreenshotSlot(screenshot.id);
