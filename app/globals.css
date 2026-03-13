@@ -126,9 +126,6 @@ img {
   min-width: 9.2rem;
   min-height: 3rem;
   padding: 0.55rem 0.9rem;
-  border-radius: 18px;
-  background: linear-gradient(135deg, #f9ffff 0%, var(--brand-soft) 100%);
-  box-shadow: inset 0 0 0 1px rgba(15, 102, 112, 0.08);
 }
 
 .site-header__brand-logo {
