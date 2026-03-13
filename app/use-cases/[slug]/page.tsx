@@ -48,28 +48,33 @@ export default async function UseCasePage({ params }: UseCasePageProps): Promise
   return (
     <>
       <DetailHero
-        eyebrow="Use-Case-Story"
+        eyebrow="Anwendungsszenario"
         title={useCase.title}
         subtitle={useCase.subtitle}
         description={useCase.summary}
         problem={useCase.problem}
         breadcrumbs={[
-          { label: "Start", href: "/" },
-          { label: "Use Cases" },
+          { label: "Übersicht", href: "/" },
+          { label: "Szenarien" },
           { label: useCase.title }
         ]}
         meta={[
           { label: "Beteiligte Module", value: `${useCase.modules.length} Module` },
           { label: "Ergebnisse", value: `${useCase.outcomes.length} Resultate` },
-          { label: "Screenshots", value: `${useCase.screenshots.length} relevante Slots` }
+          {
+            label: "Screenshots",
+            value: useCase.screenshots.length > 0 ? `${useCase.screenshots.length} verfügbar` : "–"
+          }
         ]}
         actions={
           <>
-            <Link className="cta-button" href="#screenshots">
-              Screenshots ansehen
-            </Link>
-            <Link className="button-secondary" href={`/print/use-cases/${useCase.slug}`}>
-              Print-Version
+            {useCase.screenshots.length > 0 ? (
+              <Link className="cta-button" href="#screenshots">
+                Screenshots ansehen
+              </Link>
+            ) : null}
+            <Link className="button-secondary" href="/kontakt">
+              Demo anfragen
             </Link>
           </>
         }
@@ -92,7 +97,7 @@ export default async function UseCasePage({ params }: UseCasePageProps): Promise
             />
           ) : (
             <article className="surface-card surface-card--soft detail-note">
-              <span className="eyebrow">Wirkungsfokus</span>
+              <span className="eyebrow">Kernwirkung</span>
               <p>{useCase.outcomes[0]}</p>
             </article>
           )
@@ -101,12 +106,12 @@ export default async function UseCasePage({ params }: UseCasePageProps): Promise
 
       <SectionBlock
         title="Ergebnisse und Ablauf"
-        eyebrow="Ablauf"
-        description="Der Use Case verbindet klare Resultate mit einem nachvollziehbaren Schritt-für-Schritt-Ablauf."
+        eyebrow="Wie es wirkt"
+        description="Klare Resultate, nachvollziehbarer Ablauf – so unterstützt .LOUPE dieses Szenario von Anfang bis Ende."
       >
         <div className="story-layout">
           <article className="surface-card surface-card--soft">
-            <h3>Ergebnisse</h3>
+            <h3>Was Sie gewinnen</h3>
             <ul className="list">
               {useCase.outcomes.map((outcome) => (
                 <li key={outcome}>{outcome}</li>
@@ -115,7 +120,7 @@ export default async function UseCasePage({ params }: UseCasePageProps): Promise
           </article>
 
           <article className="surface-card">
-            <h3>Ablauf in Schritten</h3>
+            <h3>Ablauf in der Praxis</h3>
             <ol className="list">
               {useCase.storySteps.map((step) => (
                 <li key={step}>{step}</li>
@@ -125,25 +130,12 @@ export default async function UseCasePage({ params }: UseCasePageProps): Promise
         </div>
       </SectionBlock>
 
-      <ScreenshotGallery screenshotIds={useCase.screenshots} title="Relevante Screenshots" />
-
-      <SectionBlock
-        title="Print-Ansicht"
-        eyebrow="Vertriebseinsatz"
-        description="Der Use Case lässt sich direkt in eine druckbare oder PDF-fähige Fassung überführen."
-        variant="minimal"
-      >
-        <p className="section__actions">
-          <Link href={`/print/use-cases/${useCase.slug}`} className="button-secondary">
-            Zur Print-Version
-          </Link>
-        </p>
-      </SectionBlock>
+      <ScreenshotGallery screenshotIds={useCase.screenshots} title="Produktscreenshots" />
 
       <CtaSection
-        title="Demo für diesen Use Case"
+        title="Demo für dieses Szenario"
         text="Wir zeigen den End-to-End-Ablauf mit Rollenbild und Einführungsfahrplan."
-        label={useCase.ctaLabel ?? "Use-Case-Demo anfragen"}
+        label={useCase.ctaLabel ?? "Demo anfragen"}
       />
     </>
   );

@@ -678,6 +678,60 @@ p {
   color: var(--ink-soft);
 }
 
+/* ── Platform Proof Bar ─────────────────────────────────── */
+
+.platform-proof-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+  padding: 1.15rem var(--space-5);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(185, 199, 210, 0.72);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-sm);
+}
+
+.platform-proof-bar__item-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.platform-proof-bar__sep {
+  padding: 0 1.5rem;
+  color: var(--line-strong);
+  font-size: 1.3rem;
+  font-weight: 300;
+  line-height: 1;
+  user-select: none;
+}
+
+.platform-proof-bar__item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  white-space: nowrap;
+}
+
+.platform-proof-bar__value {
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 800;
+  color: var(--brand);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.platform-proof-bar__label {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+/* ── Module / Use-Case Cards ────────────────────────────── */
+
 .module-card,
 .use-case-card,
 .feature-card,
@@ -750,9 +804,36 @@ p {
 }
 
 .module-card__footer {
-  display: grid;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 0.6rem;
   margin-top: 0;
+}
+
+/* Arrow CTA inside the fully-clickable card link */
+.module-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--brand-strong);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: gap 160ms ease;
+}
+
+a.module-card:hover .module-card__cta,
+a.module-card:focus-visible .module-card__cta {
+  gap: 0.55rem;
+}
+
+/* Ensure the Link wrapper card has no text-decoration */
+a.module-card {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
 }
 
 /* Use-case cards */

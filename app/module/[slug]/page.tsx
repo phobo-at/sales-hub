@@ -48,19 +48,19 @@ export default async function ModulePage({ params }: ModulePageProps): Promise<J
   return (
     <>
       <DetailHero
-        eyebrow="Modulstory"
+        eyebrow="Produktmodul"
         title={moduleContent.title}
         subtitle={moduleContent.subtitle}
         description={moduleContent.shortDescription}
         problem={moduleContent.problem}
         breadcrumbs={[
-          { label: "Start", href: "/" },
+          { label: "Übersicht", href: "/" },
           { label: "Module" },
           { label: moduleContent.title }
         ]}
         meta={[
           { label: "Zielgruppen", value: moduleContent.targetGroups.join(", ") },
-          { label: "Story-Schritte", value: `${moduleContent.storySteps.length} Schritte` },
+          { label: "Ablaufschritte", value: `${moduleContent.storySteps.length} Schritte` },
           {
             label: "Screenshots",
             value:
@@ -147,7 +147,7 @@ export default async function ModulePage({ params }: ModulePageProps): Promise<J
 
       <SectionBlock
         title="Funktionen im Detail"
-        eyebrow="Produktmechanik"
+        eyebrow="Produktfunktionen"
         description="Konkrete Produktfähigkeiten und ihr direkter Nutzen für Ihr Compliance-Team."
       >
         <div className="grid grid--cards">

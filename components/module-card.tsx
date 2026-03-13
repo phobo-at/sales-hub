@@ -13,7 +13,7 @@ export function ModuleCard({ module, index }: ModuleCardProps): JSX.Element {
   const moduleNumber = index !== undefined ? String(index + 1).padStart(2, "0") : null;
 
   return (
-    <article className="card module-card">
+    <Link href={`/module/${module.slug}`} className="card module-card">
       <div className="module-card__top-row">
         {moduleNumber !== null ? (
           <span className="module-card__index" aria-hidden="true">
@@ -41,10 +41,10 @@ export function ModuleCard({ module, index }: ModuleCardProps): JSX.Element {
             </span>
           ))}
         </div>
-        <Link className="link-inline" href={`/module/${module.slug}`}>
-          Modul ansehen
-        </Link>
+        <span className="module-card__cta" aria-hidden="true">
+          Modul ansehen →
+        </span>
       </div>
-    </article>
+    </Link>
   );
 }

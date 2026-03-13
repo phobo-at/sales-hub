@@ -9,12 +9,12 @@ import { OlexBadge } from "@/components/olex-badge";
 const primaryLinks = [
   {
     href: "/",
-    label: "Start",
+    label: "Übersicht",
     isActive: (pathname: string): boolean => pathname === "/"
   },
   {
     href: "/#use-cases",
-    label: "Use Cases",
+    label: "Szenarien",
     isActive: (pathname: string): boolean => pathname.startsWith("/use-cases")
   },
   {
@@ -54,6 +54,8 @@ export function SiteHeader({ ctaHref }: SiteHeaderProps): JSX.Element {
     return () => {
       window.removeEventListener("hashchange", syncHash);
     };
+    // pathname is an intentional trigger: re-sync hash state on every navigation
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   React.useEffect(() => {
@@ -76,6 +78,8 @@ export function SiteHeader({ ctaHref }: SiteHeaderProps): JSX.Element {
       inline: "center",
       block: "nearest"
     });
+    // pathname is an intentional trigger: scroll active module link into view on navigation
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   return (
@@ -94,8 +98,8 @@ export function SiteHeader({ ctaHref }: SiteHeaderProps): JSX.Element {
               />
             </span>
             <span className="site-header__brand-copy">
-              <strong>Demo & Sales Hub</strong>
-              <small>Enterprise-Compliance-Stories, demofähige Produktflächen.</small>
+              <strong>Enterprise Compliance</strong>
+              <small>Strukturiert. Messbar. KI-gestützt.</small>
             </span>
           </Link>
 
