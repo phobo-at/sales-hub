@@ -4,7 +4,7 @@ interface SectionBlockProps {
   id?: string;
   eyebrow?: string;
   description?: string;
-  variant?: "default" | "soft" | "accent";
+  variant?: "default" | "soft" | "accent" | "minimal";
 }
 
 export function SectionBlock({

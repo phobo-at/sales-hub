@@ -20,7 +20,7 @@ describe("SalesScreenshot", () => {
     const element = await SalesScreenshot({ screenshot });
     const html = renderToStaticMarkup(element);
 
-    expect(html).toContain("Placeholder aktiv");
+    expect(html).toContain("Platzhalter aktiv");
     expect(html).not.toContain("<img");
   });
 
@@ -39,7 +39,7 @@ describe("SalesScreenshot", () => {
     const element = await SalesScreenshot({ screenshot });
     const html = renderToStaticMarkup(element);
 
-    expect(html).toContain("Placeholder aktiv");
+    expect(html).toContain("Platzhalter aktiv");
     expect(html).toContain("Slot: whistleblowing-inbox");
     expect(html).not.toContain("<img");
   });
@@ -72,13 +72,13 @@ describe("SalesScreenshot", () => {
 
       expect(html).toContain("<img");
       expect(html).toContain(relativeAssetPath);
-      expect(html).not.toContain("Placeholder aktiv");
+      expect(html).not.toContain("Platzhalter aktiv");
     } finally {
       await fs.rm(absoluteAssetPath, { force: true });
     }
   });
 
-  it("renders the Olex badge for AI-marked screenshot surfaces", async () => {
+  it("renders the Olex badge for KI-relevante screenshot surfaces", async () => {
     const screenshot: ScreenshotContractItem = {
       id: "policy-navigator-olex-qa",
       module: "policy-navigator",
@@ -94,6 +94,24 @@ describe("SalesScreenshot", () => {
     const html = renderToStaticMarkup(element);
 
     expect(html).toContain(".LOUPE Olex");
-    expect(html).toContain("Differentiator");
+    expect(html).toContain("Differenzierungsmerkmal");
+  });
+
+  it("does not render the Olex badge for non-mapped screenshot slots", async () => {
+    const screenshot: ScreenshotContractItem = {
+      id: "risk-overview-visualization",
+      module: "risk",
+      title: "Risk Overview mit KI-Hinweisen",
+      purpose: "hero",
+      caption: "Auch bei KI-Wording darf ohne Mapping kein Badge erscheinen.",
+      status: "missing",
+      assetPath: null,
+      sourceNote: "Test"
+    };
+
+    const element = await SalesScreenshot({ screenshot });
+    const html = renderToStaticMarkup(element);
+
+    expect(html).not.toContain(".LOUPE Olex");
   });
 });

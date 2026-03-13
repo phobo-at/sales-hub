@@ -21,7 +21,7 @@ export function ModuleOlexSection({ moduleId }: ModuleOlexSectionProps): JSX.Ele
         title={signal.title}
         description={signal.description}
         points={signal.bullets}
-        footnote="Olex bleibt eingebettet in den regulierten Prozess und ersetzt keine freigegebenen Fachregeln."
+        footnote=".LOUPE Olex bleibt im regulierten Prozess eingebettet und ersetzt keine freigegebenen Fachregeln."
       />
       <AiAssistHighlight
         eyebrow={signal.microLabel}

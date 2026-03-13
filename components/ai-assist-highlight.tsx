@@ -10,7 +10,7 @@ interface AiAssistHighlightProps {
 export function AiAssistHighlight({
   title,
   text,
-  eyebrow = "AI assist"
+  eyebrow = "KI-Assistenz"
 }: AiAssistHighlightProps): JSX.Element {
   return (
     <article className="ai-highlight surface-card surface-card--floating">

@@ -54,18 +54,18 @@ const SCREENSHOT_CONTRACT_META_BY_ID = {
   },
   "whistleblowing-case-detail-ai": {
     module: "whistleblowing",
-    title: "Whistleblowing Case Detail mit KI",
+    title: "Whistleblowing Case Detail mit .LOUPE Olex",
     purpose: "proof",
-    caption: "Strukturierte Fallansicht mit KI-unterstützter Aufbereitung.",
+    caption: "Strukturierte Fallansicht mit .LOUPE Olex-gestützter Aufbereitung.",
     status: "missing",
     assetPath: "/assets/screenshots/whistleblowing-case-detail-ai.png",
     sourceNote: "Offizieller v1-Slot. Asset wird über Capture-Pipeline erzeugt."
   },
   "whistleblowing-summary-ai": {
     module: "whistleblowing",
-    title: "Whistleblowing Zusammenfassung mit KI",
+    title: "Whistleblowing Zusammenfassung mit .LOUPE Olex",
     purpose: "differentiator",
-    caption: "KI-generierte Zusammenfassungen beschleunigen die Fallarbeit.",
+    caption: ".LOUPE Olex-generierte Zusammenfassungen beschleunigen die Fallarbeit.",
     status: "missing",
     assetPath: "/assets/screenshots/whistleblowing-summary-ai.png",
     sourceNote: "Offizieller v1-Slot. Asset wird über Capture-Pipeline erzeugt."

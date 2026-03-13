@@ -43,7 +43,7 @@ Der Hub ersetzt statische, screenshot-lastige Präsentationen durch eine struktu
 ## Print- und Export-Verhalten
 
 - Dedizierte Print-Routen unter `/print/...`.
-- Print-CSS reduziert visülle Störfaktoren und stabilisiert Umbrüche.
+- Print-CSS reduziert visuelle Störfaktoren und stabilisiert Umbrüche.
 - Screenshot-Placeholder bleiben auch im PDF-/Print-Export konsistent lesbar.
 
 ## Betriebsmodus
@@ -59,10 +59,11 @@ Der Pilot für Whistleblowing (3 Slots) ist auf echte, automatisierbare Capture-
 
 ## UI-Refresh März 2026
 
-- Das visülle System nutzt jetzt klarer gestaffelte Surfaces, weisse Default-Cards, stärkere Typografie und eine route-aware Navigation mit separater Modul-Rail.
-- `.LOUPE Olex` ist als ruhige AI-Ebene in Header, Startseite, Whistleblowing und Policy Navigator sichtbar integriert.
-- Neü wiederverwendbare UI-Bausteine:
+- Das visuelle System nutzt jetzt klarer gestaffelte Surfaces, weiße Default-Cards, stärkere Typografie und eine route-aware Navigation mit separater Modul-Rail.
+- `.LOUPE Olex` ist als ruhige KI-Ebene in Header, Startseite, Whistleblowing und Policy Navigator sichtbar integriert.
+- Neue wiederverwendbare UI-Bausteine:
   - `OlexBadge`
   - `OlexCallout`
   - `AiAssistHighlight`
+- Olex-Badges in Screenshot-Karten werden explizit über Slot-IDs gesteuert, nicht über heuristische Textsuche.
 - Sichtbare Olex-Copy wurde auf `.LOUPE Olex` vereinheitlicht; technische Slot-IDs und Contract-Grenzen bleiben unverändert.

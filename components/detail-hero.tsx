@@ -39,21 +39,23 @@ export function DetailHero({
   return (
     <section className="hero detail-hero">
       <nav className="breadcrumb" aria-label="Breadcrumb">
-        {breadcrumbs.map((crumb, index) => {
-          const isLast = index === breadcrumbs.length - 1;
+        <ol>
+          {breadcrumbs.map((crumb, index) => {
+            const isLast = index === breadcrumbs.length - 1;
 
-          return (
-            <span key={`${crumb.label}-${index}`} className="breadcrumb__item">
-              {crumb.href && !isLast ? (
-                <Link href={crumb.href} className="breadcrumb__link">
-                  {crumb.label}
-                </Link>
-              ) : (
-                <span aria-current={isLast ? "page" : undefined}>{crumb.label}</span>
-              )}
-            </span>
-          );
-        })}
+            return (
+              <li key={`${crumb.label}-${index}`} className="breadcrumb__item">
+                {crumb.href && !isLast ? (
+                  <Link href={crumb.href} className="breadcrumb__link">
+                    {crumb.label}
+                  </Link>
+                ) : (
+                  <span aria-current={isLast ? "page" : undefined}>{crumb.label}</span>
+                )}
+              </li>
+            );
+          })}
+        </ol>
       </nav>
 
       <div className="detail-hero__grid">

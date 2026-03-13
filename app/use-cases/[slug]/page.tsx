@@ -32,7 +32,7 @@ export default async function UseCasePage({ params }: UseCasePageProps): Promise
   return (
     <>
       <DetailHero
-        eyebrow="Use Case story"
+        eyebrow="Use-Case-Story"
         title={useCase.title}
         subtitle={useCase.subtitle}
         description={useCase.summary}
@@ -44,7 +44,7 @@ export default async function UseCasePage({ params }: UseCasePageProps): Promise
         ]}
         meta={[
           { label: "Beteiligte Module", value: `${useCase.modules.length} Module` },
-          { label: "Outcomes", value: `${useCase.outcomes.length} Resultate` },
+          { label: "Ergebnisse", value: `${useCase.outcomes.length} Resultate` },
           { label: "Screenshots", value: `${useCase.screenshots.length} relevante Slots` }
         ]}
         actions={
@@ -76,7 +76,7 @@ export default async function UseCasePage({ params }: UseCasePageProps): Promise
             />
           ) : (
             <article className="surface-card surface-card--soft detail-note">
-              <span className="eyebrow">Outcome focus</span>
+              <span className="eyebrow">Wirkungsfokus</span>
               <p>{useCase.outcomes[0]}</p>
             </article>
           )
@@ -84,28 +84,13 @@ export default async function UseCasePage({ params }: UseCasePageProps): Promise
       />
 
       <SectionBlock
-        title="Beteiligte Module"
-        eyebrow="Platform coverage"
-        description="Der Use Case verbindet konkrete Plattform-Bausteine zu einer durchgängigen Enterprise-Story."
-        variant="soft"
-      >
-        <div className="tag-list">
-          {useCase.modules.map((moduleId) => (
-            <span className="tag tag--neutral" key={moduleId}>
-              {moduleMap.get(moduleId) ?? moduleId}
-            </span>
-          ))}
-        </div>
-      </SectionBlock>
-
-      <SectionBlock
-        title="Outcomes und Ablauf"
-        eyebrow="Journey"
-        description="Die Wirkung wird mit klaren Resultaten und einem nachvollziehbaren Schritt-für-Schritt-Ablauf beschrieben."
+        title="Ergebnisse und Ablauf"
+        eyebrow="Ablauf"
+        description="Der Use Case verbindet klare Resultate mit einem nachvollziehbaren Schritt-für-Schritt-Ablauf."
       >
         <div className="story-layout">
           <article className="surface-card surface-card--soft">
-            <h3>Outcomes</h3>
+            <h3>Ergebnisse</h3>
             <ul className="list">
               {useCase.outcomes.map((outcome) => (
                 <li key={outcome}>{outcome}</li>
@@ -128,9 +113,9 @@ export default async function UseCasePage({ params }: UseCasePageProps): Promise
 
       <SectionBlock
         title="Print-Ansicht"
-        eyebrow="Sales enablement"
+        eyebrow="Vertriebseinsatz"
         description="Der Use Case lässt sich direkt in eine druckbare oder PDF-fähige Fassung überführen."
-        variant="soft"
+        variant="minimal"
       >
         <p className="section__actions">
           <Link href={`/print/use-cases/${useCase.slug}`} className="button-secondary">

@@ -32,7 +32,7 @@ export default async function ModulePage({ params }: ModulePageProps): Promise<J
   return (
     <>
       <DetailHero
-        eyebrow="Module story"
+        eyebrow="Modulstory"
         title={moduleContent.title}
         subtitle={moduleContent.subtitle}
         description={moduleContent.shortDescription}
@@ -44,12 +44,12 @@ export default async function ModulePage({ params }: ModulePageProps): Promise<J
         ]}
         meta={[
           { label: "Zielgruppen", value: `${moduleContent.targetGroups.length} Teams` },
-          { label: "Story steps", value: `${moduleContent.storySteps.length} Schritte` },
+          { label: "Story-Schritte", value: `${moduleContent.storySteps.length} Schritte` },
           {
             label: "Screenshots",
             value:
               moduleContent.slug === "task-room"
-                ? "v1 ohne Screenshot"
+                ? "v1 ohne Screenshots"
                 : `${moduleContent.screenshots.length} freigegebene Slots`
           }
         ]}
@@ -84,7 +84,7 @@ export default async function ModulePage({ params }: ModulePageProps): Promise<J
             />
           ) : (
             <article className="surface-card surface-card--soft detail-note">
-              <span className="eyebrow">Sales lens</span>
+              <span className="eyebrow">Vertriebsperspektive</span>
               <p>{moduleContent.proofPoints[0]}</p>
             </article>
           )
@@ -92,9 +92,9 @@ export default async function ModulePage({ params }: ModulePageProps): Promise<J
       />
 
       <SectionBlock
-        title="Outcome und Story"
+        title="Nutzen und Ablauf"
         eyebrow="Modulstory"
-        description="Der Nutzen wird als klare Buyer-Erzählung gefasst und nicht nur als Feature-Liste präsentiert."
+        description="Der Nutzen wird als klare Buyer-Erzählung geführt und nicht als lose Feature-Liste."
         variant="soft"
       >
         <div className="story-layout">
@@ -121,8 +121,8 @@ export default async function ModulePage({ params }: ModulePageProps): Promise<J
       {olexSignal ? (
         <SectionBlock
           title=".LOUPE Olex in diesem Modul"
-          eyebrow="AI differentiation"
-          description="Die AI-Ebene wird im Produktkontext sichtbar und bleibt ruhig eingebettet in den Compliance-Prozess."
+          eyebrow="KI-Differenzierung"
+          description="Die KI-Ebene wird im Produktkontext sichtbar und bleibt ruhig im Compliance-Prozess eingebettet."
           variant="accent"
         >
           <ModuleOlexSection moduleId={moduleContent.slug} />
@@ -130,7 +130,7 @@ export default async function ModulePage({ params }: ModulePageProps): Promise<J
       ) : null}
 
       <SectionBlock
-        title="Feature- und Benefit-Block"
+        title="Funktionen und Nutzen"
         eyebrow="Produktmechanik"
         description="Jede Karte verbindet eine konkrete Produktfläche mit dem relevanten Nutzen für Demo- und Kaufgespräche."
       >
@@ -138,7 +138,7 @@ export default async function ModulePage({ params }: ModulePageProps): Promise<J
           {moduleContent.features.map((feature, index) => (
             <article className="card feature-card" key={feature}>
               <div className="feature-card__header">
-                <span className="eyebrow">Feature {index + 1}</span>
+                <span className="eyebrow">Funktion {index + 1}</span>
                 {/ki|olex/i.test(feature) ? <OlexBadge tone="soft" /> : null}
               </div>
               <h3>{feature}</h3>
@@ -149,14 +149,14 @@ export default async function ModulePage({ params }: ModulePageProps): Promise<J
       </SectionBlock>
 
       <SectionBlock
-        title="Proof Points"
-        eyebrow="Enterprise fit"
-        description="Die Seite bleibt auf Outcome, Governance und Vertrauen fokussiert."
+        title="Nachweise"
+        eyebrow="Enterprise-Fit"
+        description="Die Seite bleibt auf Wirkung, Governance und Vertrauen fokussiert."
       >
         <div className="grid grid--cards">
           {moduleContent.proofPoints.map((point) => (
             <article key={point} className="surface-card surface-card--soft proof-point">
-              <span className="eyebrow">Proof</span>
+              <span className="eyebrow">Nachweis</span>
               <p>{point}</p>
             </article>
           ))}
@@ -165,8 +165,8 @@ export default async function ModulePage({ params }: ModulePageProps): Promise<J
 
       {moduleContent.slug === "task-room" ? (
         <SectionBlock
-          title="Task Room Teaser (v1 ohne Screenshot)"
-          eyebrow="v1 boundary"
+          title="Task Room Teaser (v1 ohne Screenshots)"
+          eyebrow="v1-Grenze"
           description="Task Room bleibt bewusst screenshot-frei und wird im Hub als koordinierende Anschlussfähigkeit gezeigt."
           variant="soft"
         >
@@ -181,13 +181,12 @@ export default async function ModulePage({ params }: ModulePageProps): Promise<J
 
       <SectionBlock
         title="Print-Ansicht"
-        eyebrow="Sales enablement"
-        description="Alle zentralen Argumente bleiben auch in der Print-/PDF-Route sauber lesbar."
-        variant="soft"
+        eyebrow="Vertriebseinsatz"
+        description="Die Argumentation bleibt auch in der Print-/PDF-Route kompakt und sauber lesbar."
+        variant="minimal"
       >
         <p>
-          Diese Seite kann direkt gedruckt werden oder über die dedizierte Print-Route exportiert
-          werden.
+          Diese Seite kann direkt gedruckt oder über die dedizierte Print-Route exportiert werden.
         </p>
         <p className="section__actions">
           <Link href={`/print/module/${moduleContent.slug}`} className="button-secondary">

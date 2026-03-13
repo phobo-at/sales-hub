@@ -9,7 +9,7 @@ Web-first Demo- und Sales-Hub für `.LOUPE`, gebaut für wartungsarmen Betrieb m
 - Zentrale Screenshot-Quelle: `content/screenshot-contract.ts`
 - Technisches Capture-Manifest: `content/screenshot-manifest.ts`
 - Robuste Screenshot-Komponente mit Dateiexistenz-Prüfung
-- Playwright-Capture-Pipeline mit manifest-basierter Slot-Steürung
+- Playwright-Capture-Pipeline mit manifest-basierter Slot-Steuerung
 
 ## Voraussetzungen
 

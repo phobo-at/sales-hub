@@ -180,7 +180,7 @@ export function WhistleblowingMarketingScreen({
         <header className="marketing-shot__header">
           <div>
             <strong>.LOUPE Whistleblowing</strong>
-            <span> Sales Capture View</span>
+            <span> Vertriebs-Capture-Ansicht</span>
           </div>
           <div>Demo-Datenstand: 12.03.2026</div>
         </header>

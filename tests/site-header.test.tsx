@@ -45,4 +45,13 @@ describe("SiteHeader", () => {
     expect(html).toContain("Use Cases");
     expect(html).toContain('aria-current="page"');
   });
+
+  it("marks Task Room as active in the module rail", () => {
+    mockPathname = "/module/task-room";
+    const html = renderToStaticMarkup(<SiteHeader ctaHref="/kontakt" />);
+
+    expect(html).toContain('href="/module/task-room"');
+    expect(html).toContain("Task Room");
+    expect(html).toContain('data-active="true"');
+  });
 });

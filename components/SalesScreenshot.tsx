@@ -2,6 +2,7 @@ import React from "react";
 import { hasScreenshotAsset } from "@/lib/screenshot-helpers";
 import { OlexBadge } from "@/components/olex-badge";
 import type { ScreenshotContractItem } from "@/content/screenshot-contract";
+import { isOlexScreenshotSlot } from "@/lib/olex";
 
 interface SalesScreenshotProps {
   screenshot: ScreenshotContractItem;
@@ -13,21 +14,38 @@ function statusBadgeClass(status: ScreenshotContractItem["status"]): string {
 
 function purposeLabel(purpose: ScreenshotContractItem["purpose"]): string {
   if (purpose === "hero") {
-    return "Hero surface";
+    return "Hero-Ansicht";
   }
 
   if (purpose === "differentiator") {
-    return "Differentiator";
+    return "Differenzierungsmerkmal";
   }
 
-  return "Proof";
+  return "Nachweis";
+}
+
+function statusLabel(status: ScreenshotContractItem["status"]): string {
+  if (status === "available") {
+    return "Verfügbar";
+  }
+
+  if (status === "missing") {
+    return "Fehlt";
+  }
+
+  if (status === "planned") {
+    return "Geplant";
+  }
+
+  return "Erforderlich";
 }
 
 export async function SalesScreenshot({ screenshot }: SalesScreenshotProps): Promise<JSX.Element> {
   const imagePath = typeof screenshot.assetPath === "string" ? screenshot.assetPath : null;
   const hasAsset = await hasScreenshotAsset(imagePath);
   const displayStatus = hasAsset ? "available" : screenshot.status;
-  const isOlexSurface = /ki|olex/i.test(`${screenshot.title} ${screenshot.caption}`);
+  const displayStatusLabel = statusLabel(displayStatus);
+  const isOlexSurface = isOlexScreenshotSlot(screenshot.id);
 
   return (
     <article className={`screenshot-card screenshot-card--${screenshot.purpose}`}>
@@ -50,10 +68,14 @@ export async function SalesScreenshot({ screenshot }: SalesScreenshotProps): Pro
             loading="lazy"
           />
         ) : (
-          <div className="screenshot-card__placeholder" role="img" aria-label={screenshot.title}>
-            <strong>Placeholder aktiv</strong>
+          <div
+            className="screenshot-card__placeholder"
+            role="img"
+            aria-label={`${screenshot.title}: Platzhalter aktiv, Status ${displayStatusLabel}`}
+          >
+            <strong>Platzhalter aktiv</strong>
             <span className="screenshot-card__slot-id">Slot: {screenshot.id}</span>
-            <span>Status: {displayStatus}</span>
+            <span>Status: {displayStatusLabel}</span>
             <span>{screenshot.sourceNote}</span>
           </div>
         )}
@@ -61,9 +83,9 @@ export async function SalesScreenshot({ screenshot }: SalesScreenshotProps): Pro
 
       <div className="screenshot-card__meta">
         <span className="badge">{purposeLabel(screenshot.purpose)}</span>
-        <span className={statusBadgeClass(displayStatus)}>Status: {displayStatus}</span>
+        <span className={statusBadgeClass(displayStatus)}>Status: {displayStatusLabel}</span>
         {!hasAsset ? (
-          <span className="badge badge--status-required">Asset pending</span>
+          <span className="badge badge--status-required">Asset ausstehend</span>
         ) : null}
       </div>
 

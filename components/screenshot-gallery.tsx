@@ -17,10 +17,10 @@ export function ScreenshotGallery({ screenshotIds, title }: ScreenshotGalleryPro
   return (
     <section className="section section--soft section--screenshots" id="screenshots">
       <div className="section__header">
-        <span className="eyebrow">Product surfaces</span>
+        <span className="eyebrow">Produktflächen</span>
         <h2>{title ?? "Screenshots"}</h2>
         <p>
-          Freigegebene Produktansichten und robuste Placeholder-Darstellung für fehlende Assets.
+          Freigegebene Produktansichten mit robuster Platzhalter-Darstellung für fehlende Assets.
         </p>
       </div>
       <div className="screenshot-grid">
