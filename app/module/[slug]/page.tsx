@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AiAssistHighlight } from "@/components/ai-assist-highlight";
@@ -17,6 +18,22 @@ interface ModulePageProps {
 
 export async function generateStaticParams(): Promise<Array<{ slug: ModuleId }>> {
   return MODULE_IDS.map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({ params }: ModulePageProps): Promise<Metadata> {
+  const slug = parseModuleId(params.slug);
+  if (!slug) return {};
+  const content = await getModuleContent(slug);
+  if (!content) return {};
+  return {
+    title: `${content.title} | .LOUPE Sales Hub`,
+    description: content.shortDescription,
+    openGraph: {
+      title: content.title,
+      description: content.shortDescription,
+      type: "website"
+    }
+  };
 }
 
 export default async function ModulePage({ params }: ModulePageProps): Promise<JSX.Element> {

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AiAssistHighlight } from "@/components/ai-assist-highlight";
@@ -16,6 +17,22 @@ interface UseCasePageProps {
 
 export async function generateStaticParams(): Promise<Array<{ slug: UseCaseSlug }>> {
   return USE_CASE_SLUGS.map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({ params }: UseCasePageProps): Promise<Metadata> {
+  const slug = parseUseCaseSlug(params.slug);
+  if (!slug) return {};
+  const content = await getUseCaseContent(slug);
+  if (!content) return {};
+  return {
+    title: `${content.title} | .LOUPE Sales Hub`,
+    description: content.summary,
+    openGraph: {
+      title: content.title,
+      description: content.summary,
+      type: "website"
+    }
+  };
 }
 
 export default async function UseCasePage({ params }: UseCasePageProps): Promise<JSX.Element> {
